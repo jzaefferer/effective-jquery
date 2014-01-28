@@ -10,11 +10,11 @@
 var button = $(".dialog");
 var dialog = $(button.attr("href")).hide();
 button.click(function(event) {
-	event.preventDefault();
-	if (dialog.data("ui-dialog")) {
-		dialog.dialog("open");
-	} else {
-		dialog.dialog();
-	}
+  event.preventDefault();
+  if (dialog.data("ui-dialog")) {
+    dialog.dialog("open");
+  } else {
+    dialog.dialog();
+  }
 });
 </script>

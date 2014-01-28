@@ -1023,6 +1023,7 @@ function getDimensions( elem ) {
 		};
 	}
 	if ( raw.preventDefault ) {
+		debugger
 		return {
 			width: 0,
 			height: 0,

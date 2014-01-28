@@ -1,59 +1,59 @@
 .ui-tabs {
-    padding: 0;
-    border-width: 0;
+  padding: 0;
+  border-width: 0;
 }
 .ui-tabs .ui-tabs-nav {
-    border-width: 3px;
-    border-top-width: 0;
-    border-left-width: 0;
-    border-right-width: 0;
-    padding: 0;
-    background: none;
+  border-width: 3px;
+  border-top-width: 0;
+  border-left-width: 0;
+  border-right-width: 0;
+  padding: 0;
+  background: none;
 }
 .ui-tabs-nav li {
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    margin-right: .5em;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  margin-right: .5em;
 }
 .ui-tabs .ui-tabs-nav li.ui-tabs-active {
-    border-width: 3px;
-    border-bottom-width: 0;
-    margin-bottom: -3px;
-    background: #fff;
+  border-width: 3px;
+  border-bottom-width: 0;
+  margin-bottom: -3px;
+  background: #fff;
 }
 .ui-tabs-nav a:focus {
-    outline: none;
+  outline: none;
 }
 .ui-tabs-nav .ui-icon {
-    display: inline-block;
+  display: inline-block;
 }
 
 .ui-tabs-nav .ui-tabs-anchor {
-    padding-top: .7em;
-    padding-bottom: .7em;
+  padding-top: .7em;
+  padding-bottom: .7em;
 }
 .ui-tabs .ui-tabs-panel {
-    border-width: 3px;
-    border-top-width: 0;
-    padding-top: 1.5em;
+  border-width: 3px;
+  border-top-width: 0;
+  padding-top: 1.5em;
 }
 
 .ui-tabs .ui-tabs-panel {
-    background: #fff;
+  background: #fff;
 }
 
 .ui-datepicker {
-    padding: 0;
+  padding: 0;
 }
 .ui-datepicker-header {
-    border-top-width: 0;
-    border-left-width: 0;
-    border-right-width: 0;
+  border-top-width: 0;
+  border-left-width: 0;
+  border-right-width: 0;
 }
 .ui-datepicker-prev-hover, .ui-datepicker-next-hover {
-    border-width: 0;
-    background-image: none;
+  border-width: 0;
+  background-image: none;
 }
 .ui-datepicker table {
-    margin: 0;
+  margin: 0;
 }

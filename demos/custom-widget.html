@@ -1,47 +1,51 @@
 <!DOCTYPE html>
 <div id="tabs">
-	<ul>
-		<li>
-			<a href="#tabs-1">
-				<span class="ui-icon ui-icon-suitcase"></span>
-				Book a Flight
-			</a>
-		</li>
-		<li>
-			<a href="#tabs-2">
-				<span class="ui-icon ui-icon-cart"></span>
-				Rent a Car
-			</a>
-		</li>
-		<li>
-			<a href="#tabs-3">
-				<span class="ui-icon ui-icon-star"></span>
-				Package Deals
-			</a>
-		</li>
-	</ul>
-	<div id="tabs-1">
-		How many passengers, where from, where to, etc.
-		<div class="datepicker"></div>
-	</div>
-	<div id="tabs-2">
-		<p>Rent a car panel.</p>
-	</div>
-	<div id="tabs-3">
-		<p>Package deals panel.</p>
-	</div>
+  <ul>
+    <li>
+      <a href="#tabs-1">
+        <span class="ui-icon ui-icon-suitcase"></span>
+        Book a Flight
+      </a>
+    </li>
+    <li>
+      <a href="#tabs-2">
+        <span class="ui-icon ui-icon-cart"></span>
+        Rent a Car
+      </a>
+    </li>
+    <li>
+      <a href="#tabs-3">
+        <span class="ui-icon ui-icon-star"></span>
+        Package Deals
+      </a>
+    </li>
+  </ul>
+  <div id="tabs-1">
+    How many passengers, where from, where to, etc.
+    <div class="datepicker"></div>
+  </div>
+  <div id="tabs-2">
+    <p>Rent a car panel.</p>
+  </div>
+  <div id="tabs-3">
+    <p>Package deals panel.</p>
+  </div>
 </div>
 
 <link rel="stylesheet" href="vendor/jquery-ui-1.10.4.custom.css">
 <style>
 .ui-icon { display: none; }
 </style>
-<link rel="stylesheet" href="custom-widget.css">
+<script>
+if (location.search !== "?nocustom") {
+  document.write('<link rel="stylesheet" href="custom-widget.css">');
+}
+</script>
 <script src="vendor/jquery.js"></script>
 <script src="vendor/jquery-ui-1.10.4.custom.js"></script>
 <script>
 $( "#tabs" ).tabs();
 $( ".datepicker" ).datepicker({
-	inline: true
+  inline: true
 });
 </script>

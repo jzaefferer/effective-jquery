@@ -2,25 +2,28 @@
 <a href="http://jquery.com" title="Go to jQuery's site">jquery.com</a>
 <a href="http://google.com" title="Search for something!">google.com</a>
 <div style="height:1500px">
-	<button>scroll down automagically!</button>
+  <button>scroll down automagically!</button>
 </div>
 <a href="http://jquery.com" title="Go to jQuery's site">jquery.com</a>
 <a href="http://google.com" title="Search for something!">google.com</a>
+<p>EOF</p>
 <style>
 body {
-	font-family: sans-serif;
+  font-family: sans-serif;
 }
 .tooltip {
-	position: absolute;
-	background: #eee;
-	border: 1px solid #ddd;
-	border-radius: 3px;
-	padding: 8px;
-	opacity: 0;
-	transition: opacity 0.4s ease-in-out;
+  top: 0;
+  left: 0;
+  position: absolute;
+  background: #eee;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  padding: 8px;
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
 }
 .tooltip-visible {
-	opacity: 1;
+  opacity: 1;
 }
 </style>
 <script src="vendor/jquery.js"></script>
@@ -36,43 +39,42 @@ body {
 // also means that if you actually want animations to queue, you can't use only CSS
 
 var tooltip = $("<div>").addClass("tooltip").appendTo(document.body),
-	title;
+  title;
 $("a[title]").mouseenter(function(event) {
-	title = this.title;
-	this.title = "";
-	tooltip.text(title).css({
-		left: event.pageX + 10,
-		top: event.pageY + 10
-	})
-	// .addClass("tooltip-visible");
-	.transition({
-		queue: false,
-		opacity: 1,
-		x: 40
-	});
+  title = this.title;
+  this.title = "";
+  tooltip.text(title).css({
+    left: event.pageX + 10,
+    top: event.pageY + 10
+  })
+  // .addClass("tooltip-visible");
+  .transition({
+    queue: false,
+    opacity: 1
+  });
 }).mouseleave(function() {
-	this.title = title;
-	// tooltip.removeClass("tooltip-visible");
-	tooltip.transition({
-		opacity: 0,
-		x: 0
-	});
+  this.title = title;
+  // tooltip.removeClass("tooltip-visible");
+  tooltip.transition({
+    opacity: 0
+  });
 });
 
 $("button").click(function() {
-	// show how to use jQuery to animate page scroll
-	// can't be done with CSS
-	// see also http://bugs.jquery.com/ticket/14515
-	$( "html, body" ).animate({
-	// 	// scroll to end of page
-		scrollTop: $(document).height()
-	}, 800);
+  // show how to use jQuery to animate page scroll
+  // can't be done with CSS
+  // need html for oldIE, body for everything else
+  // see also http://bugs.jquery.com/ticket/14515
+  $( "html, body" ).animate({
+    // scroll to end of page
+    scrollTop: $(document).height()
+  }, 800);
 });
 
 
 // Delegate .transition() calls to .animate() if the browser can't do CSS transitions.
 // Only works for properties that jQuery can handle; x/y won't work
 if (!$.support.transition) {
-	$.fn.transition = $.fn.animate;
+  $.fn.transition = $.fn.animate;
 }
 </script>
