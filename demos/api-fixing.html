@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<script src="vendor/jquery.js"></script>
+<script>
+// Cache Proxy, caches global GET requests
+(function() {
+	var cache = {},
+		ajax = $.ajax;
+	$.ajax = function(options) {
+		var url = options.url;
+		var defer;
+		// TODO check if the type check works
+		// FUCK ME
+		console.log(options.global, options.type, cache[url], /get/i.test(options.type))
+		if (options.global && /get/i.test(options.type) && cache[url]) {
+			defer = $.Deferred();
+			defer.done(options.success).resolve(cache[url]);
+			// TODO test this
+			return defer.promise();
+		}
+		return ajax.apply(this, arguments).done(function(result) {
+			cache[url] = result;
+		});
+	};
+}());
+
+$.ajax({
+	url: "api-fixing.html"
+}).then(function() {
+	console.log("loaded html content");
+});
+
+// wrapping n+1
+function playlist(fullDetails) {
+	var result = $.Deferred();
+	$.ajax("...").done(function(items) {
+		if (!fullDetails) {
+			result.resolve(items);
+			return;
+		}
+		var x = [];
+		var detailedItems = [];
+		items.forEach(function(item) {
+			x.push($.ajax(item.url).done(function(details) {
+				detailedItems.push(details);
+			}));
+			// TODO does the order matter? see below...
+		});
+		$.when.apply(null, x).then(function() {
+			result.resolve(detailedItems);
+		});
+	});
+	return result.promise();
+}
+
+// need 600, but API only allows 200 per request? use this!
+// TODO replace callback with promise?
+// TODO implement actual error handling?
+// TODO mention the speed advantage of parallel requests, the disadvantage of having to sort
+// the API here allowed parallel, but if you need to inspect the result to get the URL for the next page, it wouldn't work, only serial
+function load(endpoint, amount, callback) {
+	var limit = 200,
+		times = Math.ceil(amount / limit),
+		requests  = [],
+		responses = [],
+		i,
+		createRequest = function(limit, offset) {
+			return $.getJSON(endpoint, { limit: limit, offset: offset });
+		};
+
+	if (!callback) {
+		return false;
+	}
+
+	for (i = 0; i < times; ++i) {
+		requests.push(createRequest(limit, limit * i));
+	}
+
+	$.when.apply(undefined, requests).then(function() {
+		if (requests.length > 1) {
+			for (i = 0; i < arguments.length; ++i) {
+				responses = responses.concat(arguments[i][0]);
+			}
+			// We have no way to know the order when the result is made of multiple requests
+			responses.sort(function(a, b) {
+				return a.id < b.id;
+			});
+		} else if (arguments[0]) {
+			responses = arguments[0];
+		}
+
+		callback(responses);
+
+	}, function() {
+		callback([]);
+	});
+}
+
+
+</script>

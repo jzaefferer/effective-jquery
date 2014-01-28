@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>fun with .add()</title>
+</head>
+<body>
+  <ul id="list"></ul>
+  <script src="vendor/jquery.js"></script>
+  <script>
+  var items = $([]);
+  console.time('add');
+  for (var i=0; i < 400; i++) {
+    var item = $("<li>").text("item" + i).data("item-index", i);
+    items = items.add(item);
+  }
+  console.timeEnd('add');
+  $("#list").append(items);
+  </script>
+</body>
+</html>

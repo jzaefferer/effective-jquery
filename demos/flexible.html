@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="vendor/jquery-ui-1.10.4.custom.css">
+<style>
+body {
+	font-family: sans-serif;
+}
+.dragme {
+	background: #ddd;
+	border: 1px solid #333;
+	border-radius: 3px;
+	width: 100px;
+	padding: 10px;
+	padding-top: 15px;
+	position: absolute;
+	left: 250px;
+	top: 150px;
+}
+.handle-container {
+	display: none;
+	text-indent: -1000px;
+	position: absolute;
+	top: 3px;
+	cursor: move;
+	padding: 5px 0;
+	width: 100px;
+}
+.handle {
+	display: block;
+	height: 1px;
+	border-bottom: 1px solid black;
+	border-top: 1px solid black;
+
+}
+p {
+	margin: 0;
+}
+</style>
+<div class="dragme">
+	<span class="handle-container">
+		<span class="handle"></span>
+	</span>
+	<p>Actual text content comes here</p>
+</div>
+<script src="vendor/jquery.js"></script>
+<script src="vendor/jquery-ui-1.10.4.custom.js"></script>
+<script>
+$(".dragme").hover(function() {
+	$(this).find(".handle-container").show();
+},function() {
+	if (document.activeElement !== this) {
+		$(this).find(".handle-container").hide();
+	}
+}).draggable({
+	handle: ".handle-container"
+});
+
+// now make this keyboard accessible
+$(".dragme")
+	.prop("tabindex", 0)
+	.focus(function() {
+		$(this).find(".handle-container").show();
+	})
+	.blur(function() {
+		$(this).find(".handle-container").hide();
+	})
+	.keydown(function(event) {
+		var element = $(this),
+			left = parseInt(element.css("left"), 10),
+			top = parseInt(element.css("top"), 10);
+		if (event.keyCode === $.ui.keyCode.UP) {
+			top -= 10;
+		}
+		if (event.keyCode === $.ui.keyCode.RIGHT) {
+			left += 10;
+		}
+		if (event.keyCode === $.ui.keyCode.DOWN) {
+			top += 10;
+		}
+		if (event.keyCode === $.ui.keyCode.LEFT) {
+			left -= 10;
+		}
+		element.css({
+			left: left,
+			top: top
+		});
+	});
+</script>

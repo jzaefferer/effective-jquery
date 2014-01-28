@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<label>Your birthday: <input id="datepicker"></label>
+
+<table id="accounts">
+	<thead>
+		<tr>
+			<th>Account</th>
+			<th>Expires</th>
+			<th>Manager</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Account X</td>
+			<td><input class="datepicker"></td>
+		</tr>
+		<tr>
+			<td>Account Y</td>
+			<td><input class="datepicker"></td>
+		</tr>
+		<tr>
+			<td>Account Z</td>
+			<td><input class="datepicker"></td>
+		</tr>
+	</tbody>
+</table>
+
+<style>
+.hasDatepicker {
+	background-color: #eee;
+}
+</style>
+<link rel="stylesheet" href="vendor/jquery-ui-1.10.4.custom.css">
+<script src="vendor/jquery.js"></script>
+<script src="vendor/jquery-ui-1.10.4.custom.js"></script>
+<script>
+$("#datepicker").one("focus", function() {
+	$(this).datepicker().datepicker("show");
+});
+// initializing a big table with a few dozen or even hundreds of datepickers on
+// page load would take a while, this is more efficient
+$("#accounts").on("focus", "input.datepicker", function() {
+	$(this).removeClass("datepicker").datepicker().datepicker("show");
+});
+</script>
