@@ -75,6 +75,10 @@ input, button {
   vertical-align: middle;
 }
 
+strong, b {
+  font-weight: bold;
+}
+
 slides > slide[hidden] {
   display: none !important;
 }

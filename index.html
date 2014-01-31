@@ -17,89 +17,47 @@
     <aside class="note">
       <section>
         [screenflow start, manually, select projector!]<br>
-        To help you remember the patterns I'm going to talk about<br>
-        I want to introduce a few metaphors
+        Lunch [pause] is just half an hour away. In that half hour I want to give you some food for thought, in the form of [hold up five fingers] five patterns. These should help you use jQuery more effectively.<br>
+        I selected these five from my work on jQuery UI and QUnit and various other projects as a freelance consulting developer. To make them sticky, I came up with a few car and driving related analogies. I also considered telling car related jokes [next slide, hoooold]
       </section>
     </aside>
     <hgroup>
       <h1>Effective jQuery</h1>
       <h2>Patterns for maintainability and performance</h2>
-      <h3>Jörn Zaefferer</h3>
+      <h3>Jörn (as in "to <strong>yearn</strong> for something") Zaefferer</h3>
       <h3><a href="http://bassistance.de">http://bassistance.de</a></h3>
       <h3><a href="https://twitter.com/bassistance">@bassistance</a></h3>
     </hgroup>
   </slide>
 
-  <!-- intro -->
-  <slide class="segue big">
+  <slide class="segue">
     <aside class="note">
       <section>
-        Let's say HTML is the road<br>
-        Sometimes you just have to use the roads that others built for you<br>
-        You can learn the turns and avoid the bumpy sections
+        [wait, look thoughfully or something, until at least some people laugh]<br>
+        but I figured that's a bad idea.<br>
+        So, with that in mind, let's look at the first pattern!
       </section>
     </aside>
     <hgroup>
-      <h2>Green landscape, dark grey road, blue sky</h2>
+      <h2>Did you hear about the new car that was made entirely out of trees?</h2>
+      <h3>Yeah, it was rejected because it <strong>wooden</strong> move.</h3>
     </hgroup>
   </slide>
-
-  <slide class="segue big">
-    <aside class="note">
-      <section>
-        Let's add JavaScript to that, as the car<br>
-      </section>
-    </aside>
-    <hgroup>
-      <h2>Road as before, with barebones car</h2>
-    </hgroup>
-  </slide>
-
-  <slide class="segue big">
-    <aside class="note">
-      <section>
-        Our JavaScript car is powered by jQuery<br>
-        There's other engines, but we've picked this one
-      </section>
-    </aside>
-    <hgroup>
-      <h2>Road and car as before, with jQuery logo as engine</h2>
-    </hgroup>
-  </slide>
-
-  <slide class="segue big">
-    <aside class="note">
-      <section>
-        CSS will be the exterior of the car, helps maintain a good speed(?)<br>
-        When there's trouble, it'll help to:<br>
-        Know the road<br>
-        Know the strengths and limits of the engine<br>
-        Keep the windows clean (???)
-        With those in place, we can start our trip<br>
-      </section>
-    </aside>
-    <hgroup>
-      <h2>Road as before, now the car has proper exterior</h2>
-    </hgroup>
-  </slide>
-
-
 
   <!-- Write code like you spend fuel -->
   <slide class="segue big">
     <aside class="note">
       <section>
-        The first pattern is about writing code like you spend fuel<br>
-        This is adapted from Doug Neiner's Contextual jQuery series<br>
-        He said "Write code like you money"<br>
-        When running low on fuel, we don't drive as fast as possible to get to the next gas station<br>
-        When the tank is full and we're in a hurry, we can driver a little faster<br>
-        Point being: Make priorities! Some stuff can wait just fine<br>
-        Let me show you how this applies to JavaScript
+        1. pattern: Write code like you spend fuel<br>
+        Adapted from Doug Neiner's Contextual jQuery series, he used "money" in place of "fuel"<br>
+        When low on fuel, we don't drive as fast as possible to get to the next gas station<br>
+        But when the tank is full and we're in a hurry, we can drive a little faster<br>
+        Now, how can we apply this principle to JavaScript?<br>
+        Let me show you show...
       </section>
     </aside>
     <hgroup>
-      <h2>Write code like you spend fuel</h2>
+      <h2>1. Write code like you spend fuel</h2>
       <h3>Adapted from Doug Neiner's Contextual jQuery series</h3>
     </hgroup>
   </slide>
@@ -107,12 +65,67 @@
   <slide>
     <aside class="note">
       <section>
-        Lazy init on a single input is probably not worth the effort<br>
-        Easy to do though, when using .one() there's no manual unbinding
+        In JavaScript we have a choice <b>when</b> to run code<br>
+        Before anything happens; on document ready; on window load;<br>
+        Or, what I usually recommend: the one down here, /commented as "cool place"<br>
+        If you've got too much code running too early, it <b>will</b> slow down loading of the page<br>
+        How can we address that?<br>
+        Let's look at a few examples
       </section>
     </aside>
     <hgroup>
-      <h2>Lazy init of a few autocomplete widgets</h2>
+      <h2>Initializing JavaScript</h2>
+    </hgroup>
+    <article>
+      <textarea class="prettyprint" data-lang="html">
+        <html>
+          <head>
+            <script class="blocks-page-rendering" src="jquery.js"></script>
+            <script>
+            superEarly();
+            jQuery(document).ready(aLittleLaterStillEarly);
+            jQuery(window).load(afterAllImagesLoaded);
+            </script>
+          </head>
+          <body>
+            <main>...</main>
+            <script class="cool-place" src="jquery.js"></script>
+            <script>
+            // cool place
+            `afterAllElementsRendered();`
+            </script>
+          </body>
+        </html>
+      </textarea>
+    </article>
+  </slide>
+
+  <slide>
+    <aside class="note">
+      <section>
+        In thist first one, there's several inputs with the autocomplete widget attached
+        I click the first input, start typing<br>
+        You see the menu showing suggestions<br>
+        the grey background indicates where the widget was initialized!<br>
+        How does that work?
+      </section>
+    </aside>
+    <hgroup>
+      <h2>Lazy init autocomplete demo</h2>
+    </hgroup>
+    <article>
+      <iframe src="demos/lazy-init-autocomplete.html"></iframe>
+    </article>
+  </slide>
+  <slide>
+    <aside class="note">
+      <section>
+        This first input uses lazy initialization, with jQuery's .one() method<br>
+        The event handler will run once, initialize the autocomplete, then remove itself<br>
+      </section>
+    </aside>
+    <hgroup>
+      <h2>Lazy init an autocomplete widgets</h2>
     </hgroup>
     <article>
       <textarea class="prettyprint" data-lang="js">
@@ -124,13 +137,13 @@
       </textarea>
     </article>
   </slide>
-
+  <!-- TODO show screenshot of big ass table with lots of inputs -->
   <slide>
     <aside class="note">
       <section>
-        More interesting when dealing with a lot of inputs, like a big table<br>
-        Using event delegation needs only a single event handler<br>
-        Widgets are initialized just in time
+        This gets more interesting when dealing with a lot of inputs, like a big table<br>
+        Using event delegation needs only a single event handler on their common container<br>
+        The selector includes a class that the event handler removes, that way each input is initialized only once, just in time
       </section>
     </aside>
     <hgroup>
@@ -152,24 +165,9 @@
   <slide>
     <aside class="note">
       <section>
-        More interesting when dealing with a lot of inputs, like a big table<br>
-        Using event delegation needs only a single event handler<br>
-        Widgets are initialized just in time
-      </section>
-    </aside>
-    <hgroup>
-      <h2>Lazy init autocomplete demo</h2>
-    </hgroup>
-    <article>
-      <iframe src="demos/lazy-init-autocomplete.html"></iframe>
-    </article>
-  </slide>
-
-  <slide>
-    <aside class="note">
-      <section>
         This works for datepicker as well<br>
-        Just emulate the default "on focus" behaviour
+        Just emulate the default "on focus" behaviour by calling the show method<br>
+        otherwise same approach as for autocomplete
       </section>
     </aside>
     <hgroup>
@@ -191,9 +189,7 @@
   <slide>
     <aside class="note">
       <section>
-        More interesting when dealing with a lot of inputs, like a big table<br>
-        Using event delegation needs only a single event handler<br>
-        Widgets are initialized just in time
+        quick demo of datepicker, no surprises here either
       </section>
     </aside>
     <hgroup>
@@ -207,7 +203,7 @@
   <slide>
     <aside class="note">
       <section>
-        Similar solution for dialogs<br>
+        dialog's usually have a trigger, so we can make use of that<br>
         Auto opens on init, manually open later
       </section>
     </aside>
@@ -233,11 +229,11 @@
       </textarea>
     </article>
   </slide>
-
   <slide>
     <aside class="note">
       <section>
-        ...
+        Again, no surprise here<br>
+        [click the link to open the dialog]
       </section>
     </aside>
     <hgroup>
@@ -270,7 +266,8 @@
   <slide>
     <aside class="note">
       <section>
-        ...<br>
+        [Click submit button]<br>
+        See, submit event is triggered after focusin<br>
         Let's look at an example in the wild
       </section>
     </aside>
@@ -288,7 +285,9 @@
         This is from a german IT news site<br>
         Instead of loading "social" widgets on page load<br>
         They introduced an extra click. Good for performance AND privacy.<br>
-        Options to always load some or all of them.
+        Options to always load some or all of them. [point at the checkboxes in popup]<br>
+        That concludes the first pattern, "Write code like you spend fuel"<br>
+        Coming up next:
       </section>
     </aside>
     <img src="images/heise-social-two-clicks.png">
@@ -303,47 +302,100 @@
   <slide class="segue big">
     <aside class="note">
       <section>
-        I liked the "Write code like you [something]" analogy,<br>
-        so I came up with a few more. This one is about the interaction between JavaScript, HTML and CSS<br>
-        Its common to change markup to allow changes in CSS. This can break brittle JS code.
+        Write code like you don't know the road<br>
+        This one is about the interaction between JavaScript, HTML and CSS<br>
+        Its common to change markup to allow changes in CSS.<br>
+        But this can break brittle JS code.
       </section>
     </aside>
     <hgroup>
-      <h2>Write code like you don't know the road</h2>
+      <h2>2. Write code like you don't know the road</h2>
+      <h3>Someone is going to mess up the HTML</h3>
     </hgroup>
   </slide>
-
   <slide>
     <aside class="note">
       <section>
-        To avoid those failures, start with flexible traversing methods<br>
-        These are less likely to break when making changes
+        This demo has an element that can be dragged by its handle<br>
+        The handle shows up on hover<br>
+        I can drag around with the mouse<br>
+        This is just a simple demo. Imagine what would happen when one change request after the other requires changing the markup of this element?<br>
+        It would probably break our underlying JavaScript. Let's check the code!
       </section>
     </aside>
     <hgroup>
-      <h2>Brittle vs flexible traversing</h2>
-      <h3>Use flexible methods</h3>
+      <h2>TODO missing slide title</h2>
+    </hgroup>
+    <article>
+      <iframe src="demos/flexible.html"></iframe>
+    </article>
+  </slide>
+  <slide>
+    <aside class="note">
+      <section>
+        At the top is the markup, below the JS applied to that<br>
+        This uses the children method to find the handle container<br>
+        This would break when the handle ends up wrapped in another element<br>
+        Instead of children(), we can use find() to avoid that<br>
+        Doug Neiner called these 'flexible' and 'brittle' methods
+      </section>
+    </aside>
+    <hgroup>
+      <h2>Traversing example</h2>
+    </hgroup>
+    <article>
+      <textarea class="prettyprint" data-lang="html">
+        <div class="dragme">
+          <span `class="handle-container"`>
+            <span class="handle"></span>
+          </span>
+          <p>Actual text content comes here</p>
+        </div>
+      </textarea>
+      <textarea class="prettyprint" data-lang="js">
+        $(".dragme").hover(function() {
+          $(this)`.children(".handle-container")`.show();
+        }, function() {
+          if (document.activeElement !== this) {
+            $(this)`.children(".handle-container")`.hide();
+          }
+        }).draggable({
+          handle: ".handle-container"
+        });
+      </textarea>
+    </article>
+  </slide>
+  <slide>
+    <aside class="note">
+      <section>
+        You should use flexible traversing methods<br>
+        These are less likely to break when making changes<br>
+        For the given example, its really easy to apply:
+      </section>
+    </aside>
+    <hgroup>
+      <!-- TODO center this stuff! current layout is ridicoulousososo -->
+      <h2>Flexible over brittle traversing methods</h2>
+      <h3>Use <strong>flexible</strong> methods!</h3>
     </hgroup>
     <article>
       <ul>
-        <li>prev vs prevAll</li>
-        <li>next vs nextAll</li>
-        <li>parent vs closest</li>
-        <li>children vs find</li>
+        <li>prevAll > prev</li>
+        <li>nextAll > next</li>
+        <li>closest > parent</li>
+        <li>find > children</li>
       </ul>
     </article>
   </slide>
-
   <slide>
     <aside class="note">
       <section>
-        Here the find method is more flexible than children<br>
-        Since we now can move the .handle-container element around, nesting deeper<br>
-        without breaking the JS code that looks for the element
+        Just replace children() with find()<br>
+        If we were to change the markup now, the JS would continue to work without changes
       </section>
     </aside>
     <hgroup>
-      <h2>Brittle vs flexible traversing example</h2>
+      <h2>Flexible over brittle traversing example</h2>
     </hgroup>
     <article>
       <textarea class="prettyprint" data-lang="html">
@@ -372,12 +424,15 @@
     <aside class="note">
       <section>
         The same applies to selectors, for example in the context of event delegation.<br>
-        Pick the more flexible selector here, since clicks don't happen often.
+        Pick the more flexible selector here, since clicks don't happen often.<br>
+        Here's its better to match clicks based on the href, instead of relying on a specific class<br>
+        So, write code like you don't know the road, be <strong>flexible!</strong><br>
+        Which also applies to our next pattern:
       </section>
     </aside>
     <hgroup>
-      <h2>Brittle vs flexible selectors</h2>
-      <h3>Use flexible selectors</h3>
+      <h2>Flexible over brittle selectors</h2>
+      <h3>Use flexible selectors!</h3>
     </hgroup>
     <article>
       <textarea class="prettyprint" data-lang="js">
@@ -393,8 +448,11 @@
   <slide class="segue big">
     <aside class="note">
       <section>
-        Here's another pattern. Traffic jams are like performance bottlenecks<br>
-        Others ran into them as well, but we don't necessarily know about them early enough<br>
+        Write code like you avoid traffic jams<br>
+        Traffic jams are like performance bottlenecks<br>
+        Others run into them as well, but we don't necessarily know about them early enough<br>
+        Always thinking about traffic jams is a waste of time<br>
+        But we can avoid well known rush hours!<br>
         When it comes to jQuery, there's a few traffic jams we can look out for<br>
         Usually having thousands of elements on a page will cause jams<br>
         Doing lots of processing in mousemove events is also a bad idea<br>
@@ -402,40 +460,67 @@
       </section>
     </aside>
     <hgroup>
-      <h2>Write code like you avoid traffic jams</h2>
+      <h2>3. Write code like you avoid traffic jams</h2>
     </hgroup>
   </slide>
 
   <slide>
     <aside class="note">
       <section>
-        Here's some jQuery code that creates a list of items<br>
-        It defines text and data for each data<br>
-        Each list item is added to a jQuery object, which is then added to the page<br>
-        Just one DOM operation, so why does it take more then a second for just 400 items?<br>
+        Here's some jQuery code that creates a list of items, it looks pretty innocent<br>
+        It sets text and data for each list item<br>
+        Each item is then added to a jQuery object, which is then added to the page<br>
+        Just one DOM operation, so why does it take more then two seconds for just 400 items?<br>
         This is a good opportunity to use a profiler
       </section>
     </aside>
     <hgroup>
-      <h2>Why does this take > 1500ms?</h2>
+      <h2>Why does this take >2 seconds?!</h2>
     </hgroup>
     <article>
       <textarea class="prettyprint" data-lang="html">
         <ul id="list"></ul>
       </textarea>
       <textarea class="prettyprint" data-lang="js">
-        `var items = $([]);`
+        var items = $([]);
         console.time('add');
         for (var i=0; i &lt; 400; i++) {
           var item = $("<li>").text("item" + i).data("item-index", i);
-          `items = items.add(item);`
+          items = items.add(item);
         }
-        console.timeEnd('add');
+        console.timeEnd('add'); // add: 2317.313ms
         $("#list").append(items);
       </textarea>
     </article>
   </slide>
-
+  <slide>
+    <aside class="note">
+      <section>
+        When I ran into this problem, I could already tell which part of my code was responsible<br>
+        It looked something like this<br>
+        I couldn't tell why it was so slow, so I added these profile calls around it [activate highlight]<br>
+        I then ran the code again and looked at the profile that Chrome created
+      </section>
+    </aside>
+    <hgroup>
+      <h2>Use profiler to find out!</h2>
+    </hgroup>
+    <article>
+      <textarea class="prettyprint" data-lang="html">
+        <ul id="list"></ul>
+      </textarea>
+      <textarea class="prettyprint" data-lang="js">
+        var items = $([]);
+        `console.profile('add');`
+        for (var i=0; i &lt; 400; i++) {
+          var item = $("<li>").text("item" + i).data("item-index", i);
+          items = items.add(item);
+        }
+        `console.profileEnd('add');`
+        $("#list").append(items);
+      </textarea>
+    </article>
+  </slide>
   <slide class="full nobackground">
     <aside class="note">
       <section>
@@ -460,8 +545,8 @@
       <section>
         which has pretty much the same total time, but lots more self time<br>
         so probably most time is spent here<br>
-        Not a new issue, has actually been around for a long time<br>
-        Other methods used to run into the same problem, got fixed back around jQuery 1.5, including these graphs in the release blog post
+        When digging into this, I learned that this isn't a new issue, has actually been around for a long time<br>
+        Other methods had this problem as well, got fixed back around jQuery 1.5, including these graphs in the release blog post
       </section>
     </aside>
     <img src="images/add-slow-flamegraph-uniquesort.png">
@@ -489,24 +574,30 @@
     <aside class="note">
       <section>
         Here's pretty much the same code, replacing the jQuery object with a plain array<br>
-        Takes less then 50ms, so much much faster<br>
+        Takes less then 60ms, so much much faster<br>
+        Again: Write code like you avoid traffic jams!<br>
+        In this case, the answer could be found in JavaScript<br>
+        In other cases, we have to look a little further<br>
+        Which brings us to:
       </section>
     </aside>
     <hgroup>
-      <h2>Runs in &lt; 50ms!</h2>
+      <h2>Runs in &lt;60ms!</h2>
     </hgroup>
     <article>
       <textarea class="prettyprint" data-lang="html">
         <ul id="list"></ul>
       </textarea>
       <textarea class="prettyprint" data-lang="js">
+        // var items = $([]);
         `var items = []`;
         console.time('add');
         for (var i=0; i &lt; 400; i++) {
           var item = $("<li>").text("item" + i).data("item-index", i);
+          // items = items.add(item);
           `items.push(item);`
         }
-        console.timeEnd('add');
+        console.timeEnd('add'); // add: 55.338ms
         $("#list").append(items);
       </textarea>
     </article>
@@ -517,24 +608,42 @@
   <slide class="segue big">
     <aside class="note">
       <section>
+        Combine tools like you'd park and ride<br>
         jQuery pioneered a lot of APIs<br>
-        A lot of them are now available in the browser without libraries, via JavaScript<br>
+        A lot of them are now available in the browser without libraries, via JavaScript, like querySelectorAll or classList<br>
         One particular new API got exposed via CSS: Transitions<br>
         Since jQuery animations tend to be very slow on mobile devices, CSS transitions are quite valuable there<br>
         Those don't replace jQuery, but combining both is very poweful
       </section>
     </aside>
     <hgroup>
-      <h2>Combine tools like you'd park and ride</h2>
-      <h3>Is there such a thing as park and ride in the US?</h3>
+      <h2>4. Combine tools like you'd park and ride</h2>
     </hgroup>
   </slide>
-
   <slide>
     <aside class="note">
       <section>
-        tooltip example with CSS transition fadein/out<br>
-        starting with the necessary CSS
+        let's start with a demo<br>
+        this page implements a custom tooltip on anchors<br>
+        clicking this button will do an animated page scroll<br>
+        Let's look at the options for implementing these
+      </section>
+    </aside>
+    <hgroup>
+      <h2>Custom tooltip and animated page scroll demo</h2>
+    </hgroup>
+    <article>
+      <iframe src="demos/transitions.html"></iframe>
+    </article>
+  </slide>
+  <slide>
+    <aside class="note">
+      <section>
+        here's the CSS for a custom tooltip using CSS transitions for the fade effect<br>
+        a lot of this is just general styling<br>
+        [activate highlight]<br>
+        relevant for the transition is opacity and transition<br>
+        let's look at the javascript for that
       </section>
     </aside>
     <hgroup>
@@ -562,8 +671,11 @@
   <slide>
     <aside class="note">
       <section>
-        tooltip example with CSS transition fadein/out<br>
-        JS half
+        implementing the tooltip in JavaScript involves creating an element to show<br>
+        positioning that in the right place, setting the text, removing the title attribute<br>
+        once all that is done, the "tooltip-visible" class is added<br>
+        all that happens on mouseenter; on mouseleave, the title is restored and the class is removed<br>
+        this works, but we can also control the transition from JavaScript
       </section>
     </aside>
     <hgroup>
@@ -573,7 +685,7 @@
       <textarea class="prettyprint" data-lang="js">
         var tooltip = $("<div>").addClass("tooltip").appendTo(document.body),
           title;
-        $("a[title]").mouseenter(function(event) {
+        $("a[title]")`.mouseenter(`function(event) {
           title = this.title;
           this.title = "";
           tooltip.text(title).css({
@@ -581,7 +693,7 @@
             top: event.pageY + 10
           })
           `.addClass("tooltip-visible");`
-        }).mouseleave(function() {
+        })`.mouseleave(`function() {
           this.title = title;
           `tooltip.removeClass("tooltip-visible");`
         });
@@ -591,10 +703,11 @@
   <slide>
     <aside class="note">
       <section>
-        tooltip example with transit plugin, nothing extra in CSS<br>
-        one part a matter of perference: declaraed in CSS vs JS<br>
-        one part control: queue multiple transitions, impossible with CSS transitions
-        one part fallbacks: when desired, really easy to do with transit plugin...
+        same tooltip example, now transit plugin, nothing extra in CSS<br>
+        why pick one over the other?<br>
+        <b>preference</b>: declared in CSS vs JS<br>
+        <b>control</b>: queue multiple transitions, impossible with CSS transitions<br>
+        <b>fallbacks</b>: when desired, really easy to do with transit plugin... [next slide mentions CSS Transitions fallback handling]
       </section>
     </aside>
     <hgroup>
@@ -602,16 +715,11 @@
     </hgroup>
     <article>
       <textarea class="prettyprint" data-lang="js">
-        var tooltip = $("<div>").addClass("tooltip").appendTo(document.body),
+        var tooltip = [...],
           title;
         $("a[title]").mouseenter(function(event) {
-          title = this.title;
-          this.title = "";
-          tooltip.text(title).css({
-            left: event.pageX + 10,
-            top: event.pageY + 10
-          })
-          `.transition({`
+          /* as before: set title, position tooltip */
+          tooltip`.transition({`
             `queue: false,`
             `opacity: 1`
           });
@@ -651,7 +759,9 @@
       <section>
         for that we can still use jQuery<br>
         since that just moves the visual viewport and doesn't change anything in the layout viewport, it works pretty well<br>
-        for an explanation, read PPKs article about the two viewports on mobile: http://www.quirksmode.org/mobile/viewports2.html
+        note that the complete callback runs for both elements<br>
+        using .promise().then() will provide a single callback<br>
+        That brings us to the fifth and last pattern.
       </section>
     </aside>
     <hgroup>
@@ -659,30 +769,15 @@
     </hgroup>
     <article>
       <textarea class="prettyprint" data-lang="js">
-        // show how to use jQuery to animate page scroll
-        // can't be done with CSS
-        // need html for oldIE, body for everything else
-        // see also http://bugs.jquery.com/ticket/14515
         $( "html, body" ).animate({
           // scroll to end of page
           scrollTop: $(document).height()
-        }, 800);
+        }, 800, function() {
+          console.log("runs twice");
+        }).promise().then(function() {
+          console.log("runs once!")
+        });
       </textarea>
-      <a href="http://www.quirksmode.org/mobile/viewports2.html">PPK provides a good exlanation of visual and layout viewports</a>
-    </article>
-  </slide>
-
-  <slide>
-    <aside class="note">
-      <section>
-        here's a demo for the previous code examples
-      </section>
-    </aside>
-    <hgroup>
-      <h2>custom tooltip and scroll demo</h2>
-    </hgroup>
-    <article>
-      <iframe src="demos/transitions.html"></iframe>
     </article>
   </slide>
 
@@ -692,8 +787,11 @@
   <slide class="segue big">
     <aside class="note">
       <section>
-        jQuery UI widgets come with a theme<br>
-        Often that isn't what an app needs<br>
+        Customize widgets like customizing a car<br>
+        These days its possible to order a heavily customized car<br>
+        You could also buy a used car and replace the rims<br>
+        jQuery UI widgets come with a selection of themes<br>
+        You can pick one that fits, but you will likely need to adjust some details<br>
         Building new widgets from scratch may seem like a good idea at first<br>
         But building accessibility features and getting all the UX details right is really hard<br>
         In that case, look into customizing jQuery UI widgets<br>
@@ -701,18 +799,18 @@
       </section>
     </aside>
     <hgroup>
-      <h2>Customize widgets like customizing a car</h2>
+      <h2>5. Customize widgets like customizing a car</h2>
     </hgroup>
   </slide>
 
   <slide>
     <aside class="note">
       <section>
-        This is original theme provided by ThemeRoller
+        This is an original theme provided by ThemeRoller
       </section>
     </aside>
     <hgroup>
-      <h2>Flick theme with original CSS</h2>
+      <h2>Flick theme, original CSS</h2>
     </hgroup>
     <article>
       <iframe src="demos/custom-widget.html?nocustom"></iframe>
@@ -726,11 +824,12 @@
         Add icons<br>
         Removes some spacing on the datepicker to match the tabs<br>
         Takes a few lines of CSS, nothing magic<br>
-        I'd like to show some examples of custom widgets in a live site
+        [mouse around to show hover styles]<br>
+        This is just a demo, so I'd like to show some actual customized widgets
       </section>
     </aside>
     <hgroup>
-      <h2>Flick theme with custom CSS</h2>
+      <h2>Flick theme, custom CSS</h2>
     </hgroup>
     <article>
       <iframe src="demos/custom-widget.html"></iframe>
@@ -741,7 +840,7 @@
   <slide class="full nobackground">
     <aside class="note">
       <section>
-        from mybalsamiq, a online tool for creating mockups<br>
+        from mybalsamiq, a tool for creating mockups<br>
         customized menu with icons and shortcuts to change project style
       </section>
     </aside>
@@ -750,7 +849,8 @@
   <slide class="full nobackground">
     <aside class="note">
       <section>
-        custom tooltips on the icons, "Launch Prototype" etc.
+        mybalsamiq also uses custom tooltips on the icons<br>
+        like the "Launch Prototype" around the top right
       </section>
     </aside>
     <img src="images/mybalsamiq-tooltip.png">
@@ -758,7 +858,9 @@
   <slide class="full nobackground">
     <aside class="note">
       <section>
-        tabs head embedded in dialog header
+        there's a dialog with two tabs, for uploading assets<br>
+        the tabs headers are embedded in the dialog header<br>
+        saves screen estate and looks nice
       </section>
     </aside>
     <img src="images/mybalsamiq-tabbed-dialog.png">
@@ -766,7 +868,11 @@
   <slide class="full nobackground">
     <aside class="note">
       <section>
-        slider with extra labels for each step
+        last one: the access slider<br>
+        here a customized slider with extra labels for each step<br>
+        these were examples of custom widgets that fit into your design<br>
+        while you benefit from their great UX and accessibility<br>
+        if you don't like the ThemeRoller themes and don't want to build your own
       </section>
     </aside>
     <img src="images/mybalsamiq-access-slider.png">
@@ -776,8 +882,8 @@
   <slide class="full nobackground">
     <aside class="note">
       <section>
-        you don't even need to build our own themes<br>
-        wijmo provides a bunch, like aristo
+        there's more<br>
+        wijmo provides several good themes, like aristo
       </section>
     </aside>
     <img src="images/wijmo-aristo.png">
@@ -786,7 +892,10 @@
     <aside class="note">
       <section>
         or this "midnight" theme<br>
-        they've got plenty more
+        they've got more themes and more widgets, too<br>
+        all that to say: don't build a car from scratch, you will waste a lot of time and miss a lot of details<br>
+        unless building cars is your business. Probably not!<br>
+        Which brings us to the end, so its time to...
       </section>
     </aside>
     <img src="images/wijmo-midnight.png">
@@ -795,47 +904,46 @@
 
 
   <!-- outro -->
-  <slide class="segue big">
+  <slide>
     <aside class="note">
       <section>
-        recap
+        Recap!<br>
+        <ul>
+          <li>Write code like you spend fuel - plan ahead, spend as necessary, keep a reserve</li>
+          <li>Write code like you don't know the road - be flexible, avoid brittle methods and selectors</li>
+          <li>Write code like you avoid traffic jams - avoid JavaScript rush hours, use profiler when you run into unexpected bottlenecks</li>
+          <li>Combine tools like you'd park and ride - make use of CSS transitions, combine with jQuery</li>
+          <li>Customize widgets like customizing a car - don't build widgets from scratch when you can customize them</li>
+        </ul>
       </section>
     </aside>
     <hgroup>
-      <h2>...</h2>
+      <h2>Recap</h2>
     </hgroup>
-    Write code like you spend fuel
-    Write code like you don't know the road
-    Write code like you avoid traffic jams
-    Combine tools like you'd park and ride
-    Customize widgets like customizing a car
+    <article>
+      <ul>
+        <li>Write code like you spend fuel</li>
+        <li>Write code like you don't know the road</li>
+        <li>Write code like you avoid traffic jams</li>
+        <li>Combine tools like you'd park and ride</li>
+        <li>Customize widgets like customizing a car</li>
+      </ul>
+    </article>
   </slide>
-  <slide class="segue big">
-    <aside class="note">
-      <section>
-        one more thing
-      </section>
-    </aside>
-    <hgroup>
-      <h2>...</h2>
-    </hgroup>
-    ???
-  </slide>
+
 
 
   <!-- closing -->
   <slide class="thank-you-slide segue nobackground">
     <aside class="note">
       <section>
-        "here's [resources] and we have time for questions!"<br>
+        "here are contact details and links to slides and resources"<br>
+        If Q/A time: "and we have time for questions!"<br>
         Once done, "Alright, that was the last question, thank you very much!"<br>
-        If no time for questions, "here's [resources], unfortunately we don't have time for questions. Thank you very much!"
+        Otherwise: "unfortunately we don't have time for questions. Thank you very much!"
       </section>
     </aside>
     <article class="flexbox vleft auto-fadein">
-      <!-- TODO improve formatting here, put stuff full screen
-      somewhat like this: http://bassistance.de/i/644bb2.png
-      -->
       <ul>
         <li><span>twitter</span><a href="http://twitter.com/@bassistance">@bassistance</a></li>
         <li><span>email</span><a href="mailto:joern.zaefferer@gmail.com">joern.zaefferer@gmail.com</a></li>

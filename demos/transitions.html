@@ -68,7 +68,11 @@ $("button").click(function() {
   $( "html, body" ).animate({
     // scroll to end of page
     scrollTop: $(document).height()
-  }, 800);
+  }, 800, function() {
+    console.log("runs twice");
+  }).promise().then(function() {
+    console.log("runs once!")
+  });
 });
 
 

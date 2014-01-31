@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <label>Who are you? <input id="autocomplete"></label>
-<br>
-<label>Who do you work for? <input id="autocomplete2"></label>
 
 <table id="accounts">
   <thead>
@@ -87,7 +85,7 @@ var names = [
   "Eldgrima Rorleifsdottir"
 ];
 names.sort();
-$("#autocomplete, #autocomplete2").one("focus", function() {
+$("#autocomplete").one("focus", function() {
   $(this).autocomplete({
     source: names
   });

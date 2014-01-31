@@ -9,7 +9,7 @@ Here are additional resources that should be useful.
 
 ### General
 
-(nothing here yet)
+* [PPK on layout and visual viewports on mobile](http://www.quirksmode.org/mobile/viewports2.html)
 
 ## Usage
 
