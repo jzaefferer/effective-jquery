@@ -13,6 +13,7 @@
 
 <slides class="layout-widescreen">
 
+<div class="pattern-intro">
   <slide class="title-slide segue nobackground">
     <aside class="note">
       <section>
@@ -24,9 +25,11 @@
     <hgroup>
       <h1>Effective jQuery</h1>
       <h2>Patterns for maintainability and performance</h2>
-      <h3>Jörn (as in "to <strong>yearn</strong> for something") Zaefferer</h3>
-      <h3><a href="http://bassistance.de">http://bassistance.de</a></h3>
-      <h3><a href="https://twitter.com/bassistance">@bassistance</a></h3>
+      <h3>
+        Jörn (as in "to <strong>yearn</strong> for something") Zaefferer<br>
+        <a href="http://bassistance.de">bassistance.de</a><br>
+        <a href="https://twitter.com/bassistance">@bassistance</a>
+      </h3>
     </hgroup>
   </slide>
 
@@ -43,9 +46,11 @@
       <h3>Yeah, it was rejected because it <strong>wooden</strong> move.</h3>
     </hgroup>
   </slide>
+</div>
 
+<div class="pattern-1">
   <!-- Write code like you spend fuel -->
-  <slide class="segue big">
+  <slide class="segue big dark">
     <aside class="note">
       <section>
         1. pattern: Write code like you spend fuel<br>
@@ -137,7 +142,6 @@
       </textarea>
     </article>
   </slide>
-  <!-- TODO show screenshot of big ass table with lots of inputs -->
   <slide>
     <aside class="note">
       <section>
@@ -295,11 +299,12 @@
       <h2>heise.de two clicks for more privacy</h2>
     </hgroup>
   </slide>
+</div>
 
 
-
+<div class="pattern-2">
   <!-- Write code like you don't know the road -->
-  <slide class="segue big">
+  <slide class="segue big dark">
     <aside class="note">
       <section>
         Write code like you don't know the road<br>
@@ -324,7 +329,7 @@
       </section>
     </aside>
     <hgroup>
-      <h2>TODO missing slide title</h2>
+      <h2>Flexible draggable handle demo</h2>
     </hgroup>
     <article>
       <iframe src="demos/flexible.html"></iframe>
@@ -441,11 +446,11 @@
       </textarea>
     </article>
   </slide>
+</div>
 
-
-
+<div class="pattern-3">
   <!-- Write code like you avoid traffic jams -->
-  <slide class="segue big">
+  <slide class="segue big dark">
     <aside class="note">
       <section>
         Write code like you avoid traffic jams<br>
@@ -485,7 +490,7 @@
         var items = $([]);
         console.time('add');
         for (var i=0; i &lt; 400; i++) {
-          var item = $("<li>").text("item" + i).data("item-index", i);
+          var item = $("&lt;li>").text("item" + i).data("item-index", i);
           items = items.add(item);
         }
         console.timeEnd('add'); // add: 2317.313ms
@@ -513,7 +518,7 @@
         var items = $([]);
         `console.profile('add');`
         for (var i=0; i &lt; 400; i++) {
-          var item = $("<li>").text("item" + i).data("item-index", i);
+          var item = $("&lt;li>").text("item" + i).data("item-index", i);
           items = items.add(item);
         }
         `console.profileEnd('add');`
@@ -593,7 +598,7 @@
         `var items = []`;
         console.time('add');
         for (var i=0; i &lt; 400; i++) {
-          var item = $("<li>").text("item" + i).data("item-index", i);
+          var item = $("&lt;li>").text("item" + i).data("item-index", i);
           // items = items.add(item);
           `items.push(item);`
         }
@@ -602,10 +607,12 @@
       </textarea>
     </article>
   </slide>
+</div>
 
 
+<div class="pattern-4">
   <!-- Combine tools like you'd park and ride -->
-  <slide class="segue big">
+  <slide class="segue big dark">
     <aside class="note">
       <section>
         Combine tools like you'd park and ride<br>
@@ -780,11 +787,11 @@
       </textarea>
     </article>
   </slide>
+</div>
 
-
-
+<div class="pattern-5">
   <!-- Customize widgets like customizing a car -->
-  <slide class="segue big">
+  <slide class="segue big dark">
     <aside class="note">
       <section>
         Customize widgets like customizing a car<br>
@@ -900,9 +907,10 @@
     </aside>
     <img src="images/wijmo-midnight.png">
   </slide>
+</div>
 
 
-
+<div class="pattern-outro">
   <!-- outro -->
   <slide>
     <aside class="note">
@@ -931,8 +939,6 @@
     </article>
   </slide>
 
-
-
   <!-- closing -->
   <slide class="thank-you-slide segue nobackground">
     <aside class="note">
@@ -953,6 +959,7 @@
       </ul>
     </article>
   </slide>
+</div>
 
   <slide class="backdrop"></slide>
 

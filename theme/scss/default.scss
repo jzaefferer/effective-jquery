@@ -129,7 +129,7 @@ body {
   background: black;
 }
 
-slides > slide {
+slides slide {
   display: none;
   font-family: 'Open Sans', Arial, sans-serif;
   font-size: $font-size-base;
@@ -144,7 +144,8 @@ slides > slide {
 
   @include border-radius($slide-border-radius);
   //@include box-shadow(5px 5px 20px $gray-4);
-  @include transition(all 0.6s ease-in-out);
+  /* disabled slide transitions, they suck with non-white backgrounds */
+  // @include transition(all 0.6s ease-in-out);
 
   //$translateX: 1020px;
   //$rotateY: 30deg;
@@ -259,7 +260,7 @@ slides > slide {
   }
 }
 
-slides.layout-faux-widescreen > slide {
+slides.layout-faux-widescreen slide {
   padding: $slide-top-bottom-padding 160px;
 }
 
@@ -268,33 +269,33 @@ slides.layout-faux-widescreen {
 
   $translateX: 1130px;
 
-  > slide {
+  slide {
     margin-left: -$slide-width-widescreen / 2;
     width: $slide-width-widescreen;
   }
 
-  > slide.far-past {
+  slide.far-past {
     display: block;
     display: none;
     @include transform(translate(-$translateX * 2));
     @include transform(translate3d(-$translateX * 2, 0, 0));
   }
 
-  > slide.past {
+  slide.past {
     display: block;
     //@include transform(translate(-$translateX));
     //@include transform(translate3d(-$translateX, 0, 0));
     opacity: 0;
   }
 
-  > slide.current {
+  slide.current {
     display: block;
     //@include transform(translate(0));
     //@include transform(translate3d(0, 0, 0));
     opacity: 1;
   }
 
-  > slide.next {
+  slide.next {
     display: block;
     //@include transform(translate($translateX));
     //@include transform(translate3d($translateX, 0, 0));
@@ -302,7 +303,7 @@ slides.layout-faux-widescreen {
     pointer-events: none;
   }
 
-  > slide.far-next {
+  slide.far-next {
     display: block;
     display: none;
     @include transform(translate($translateX * 2));
@@ -600,6 +601,10 @@ slide.full {
   background: black;
   @include border-radius(0);
   text-align: center;
+}
+slide.full img {
+  max-width: 100%;
+  max-height: 100%;
 }
 video {
   width: 96%;
@@ -920,10 +925,10 @@ article.smaller {
 }
 .segue.dark {
   h2 {
-    color: $gray-1;
+    color: white;
   }
   h3 {
-    color: $gray-1;
+    color: white;
   }
 }
 .big {
@@ -978,20 +983,38 @@ article.smaller {
 
 .title-slide {
 
-  hgroup {
+  background: url(../../images/road-background.jpg);
+  background-size: 100%;
 
+  hgroup {
     h1 {
-      font-size: 76px;
-      line-height: 1.4;
+      font-size: 92px;
+      line-height: 1.5;
       letter-spacing: -3px;
-      color: $gray-4;
+      color: white;
+      text-shadow: 2px 2px 10px #333;
     }
 
     h2 {
-      font-size: 72px;
-      line-height: 72px;
+      font-size: 70px;
+      line-height: 70px;
       font-weight: inherit;
+      color: #F5DC43;
+      text-shadow: 2px 2px 6px #333;
     }
+
+    h3 {
+      display: inline-block;
+      border-radius: 10px;
+      color: white;
+      background: rgba(90, 90, 90, 0.7);
+      padding: 10px 24px;
+      a {
+        color: white;
+        border-bottom: none;
+      }
+    }
+
 
     p {
       font-size: 43px;
@@ -1055,6 +1078,31 @@ body {
 body.with-notes {
   -webkit-filter: none !important;
 }
+
+/*
+.pattern-intro slide.dark {
+  background-color: #C1FFC5;
+}
+.pattern-1 slide.dark {
+  background-color: #FF9A0D !important;
+}
+.pattern-2 slide.dark {
+  background-color: #E80435 !important;
+}
+.pattern-3 slide.dark {
+  background-color: #4611FF !important;
+}
+.pattern-4 slide.dark {
+  background-color: #04DDE8 !important;
+}
+.pattern-5 slide.dark {
+  background-color: #44FF05 !important;
+}
+.pattern-outro slide.dark {
+  background-color: #CED3FF;
+}
+*/
+
 
 .quote {
   color: white;
