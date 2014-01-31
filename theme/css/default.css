@@ -1,0 +1,1619 @@
+/* line 17, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block;
+}
+
+/**
+ * Base SlideDeck Styles
+ */
+/* line 48, ../scss/_base.scss */
+html {
+  height: 100%;
+  overflow: hidden;
+}
+
+/* line 53, ../scss/_base.scss */
+body {
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+  height: 100%;
+  min-height: 740px;
+  width: 100%;
+  overflow: hidden;
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -ms-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+  -webkit-transition: opacity 800ms ease-in;
+  -webkit-transition-delay: 100ms;
+  -moz-transition: opacity 800ms ease-in 100ms;
+  -o-transition: opacity 800ms ease-in 100ms;
+  transition: opacity 800ms ease-in 100ms;
+}
+/* line 69, ../scss/_base.scss */
+body.loaded {
+  opacity: 1 !important;
+}
+
+/* line 74, ../scss/_base.scss */
+input, button {
+  vertical-align: middle;
+}
+
+/* line 78, ../scss/_base.scss */
+strong, b {
+  font-weight: bold;
+}
+
+/* line 82, ../scss/_base.scss */
+slides > slide[hidden] {
+  display: none !important;
+}
+
+/* line 86, ../scss/_base.scss */
+slides {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-perspective: 1000;
+  -moz-perspective: 1000;
+  -ms-perspective: 1000;
+  -o-perspective: 1000;
+  perspective: 1000;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transition: opacity 800ms ease-in;
+  -webkit-transition-delay: 100ms;
+  -moz-transition: opacity 800ms ease-in 100ms;
+  -o-transition: opacity 800ms ease-in 100ms;
+  transition: opacity 800ms ease-in 100ms;
+}
+
+/* line 98, ../scss/_base.scss */
+slides > slide {
+  display: block;
+  position: absolute;
+  overflow: hidden;
+  left: 50%;
+  top: 50%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* Slide styles */
+/*article.fill iframe {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+
+  border: 0;
+  margin: 0;
+
+  @include border-radius(10px);
+
+  z-index: -1;
+}
+
+slide.fill {
+  background-repeat: no-repeat;
+  @include background-size(cover);
+}
+
+slide.fill img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  min-width: 100%;
+  min-height: 100%;
+
+  z-index: -1;
+}
+*/
+/* fonts */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Open Sans"), local("OpenSans"), url(../open-sans.woff) format("woff");
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 600;
+  src: local("Open Sans Semibold"), local("OpenSans-Semibold"), url(../open-sans-bold.woff) format("woff");
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 400;
+  src: local("Open Sans Italic"), local("OpenSans-Italic"), url(http://themes.googleusercontent.com/static/fonts/opensans/v6/xjAJXh38I15wypJXxuGMBrrIa-7acMAeDBVuclsi6Gc.woff) format("woff");
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 600;
+  src: local("Open Sans Semibold Italic"), local("OpenSans-SemiboldItalic"), url(http://themes.googleusercontent.com/static/fonts/opensans/v6/PRmiXeptR36kaC0GEAetxuw_rQOTGi-AJs5XCWaKIhU.woff) format("woff");
+}
+
+@font-face {
+  font-family: 'Source Code Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Source Code Pro"), local("SourceCodePro-Regular"), url(../source-code-pro.woff) format("woff");
+}
+
+/**
+ * Theme Styles
+ */
+/* line 92, ../scss/default.scss */
+::selection {
+  color: white;
+  background-color: #ffd14d;
+  text-shadow: none;
+}
+
+/* line 98, ../scss/default.scss */
+::-webkit-scrollbar {
+  height: 16px;
+  overflow: visible;
+  width: 16px;
+}
+
+/* line 103, ../scss/default.scss */
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.1);
+  background-clip: padding-box;
+  border: solid transparent;
+  min-height: 28px;
+  padding: 100px 0 0;
+  -webkit-box-shadow: inset 1px 1px 0 rgba(0, 0, 0, 0.1), inset 0 -1px 0 rgba(0, 0, 0, 0.07);
+  -moz-box-shadow: inset 1px 1px 0 rgba(0, 0, 0, 0.1), inset 0 -1px 0 rgba(0, 0, 0, 0.07);
+  box-shadow: inset 1px 1px 0 rgba(0, 0, 0, 0.1), inset 0 -1px 0 rgba(0, 0, 0, 0.07);
+  border-width: 1px 1px 1px 6px;
+}
+
+/* line 112, ../scss/default.scss */
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* line 115, ../scss/default.scss */
+::-webkit-scrollbar-button {
+  height: 0;
+  width: 0;
+}
+
+/* line 119, ../scss/default.scss */
+::-webkit-scrollbar-track {
+  background-clip: padding-box;
+  border: solid transparent;
+  border-width: 0 0 0 4px;
+}
+
+/* line 124, ../scss/default.scss */
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* line 128, ../scss/default.scss */
+body {
+  background: black;
+}
+
+/* line 132, ../scss/default.scss */
+slides > slide {
+  display: none;
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-size: 30px;
+  color: #494949;
+  width: 900px;
+  height: 700px;
+  margin-left: -450px;
+  margin-top: -350px;
+  padding: 40px 60px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-transition: all 0.6s ease-in-out;
+  -moz-transition: all 0.6s ease-in-out;
+  -o-transition: all 0.6s ease-in-out;
+  transition: all 0.6s ease-in-out;
+}
+/* line 153, ../scss/default.scss */
+slides > slide.far-past {
+  display: none;
+}
+/* line 160, ../scss/default.scss */
+slides > slide.past {
+  display: block;
+  opacity: 0;
+}
+/* line 167, ../scss/default.scss */
+slides > slide.current {
+  display: block;
+  opacity: 1;
+}
+/* line 173, ../scss/default.scss */
+slides > slide.current .auto-fadein {
+  opacity: 1;
+}
+/* line 177, ../scss/default.scss */
+slides > slide.current .gdbar {
+  -webkit-background-size: 100% 100%;
+  -moz-background-size: 100% 100%;
+  -o-background-size: 100% 100%;
+  background-size: 100% 100%;
+}
+/* line 182, ../scss/default.scss */
+slides > slide.next {
+  display: block;
+  opacity: 0;
+  pointer-events: none;
+}
+/* line 190, ../scss/default.scss */
+slides > slide.far-next {
+  display: none;
+}
+/* line 197, ../scss/default.scss */
+slides > slide.dark {
+  background: #515151 !important;
+}
+/* line 201, ../scss/default.scss */
+slides > slide:not(.nobackground) {
+  /*
+  &:before {
+    font-size: 12pt;
+    content: $social-tags;
+    position: absolute;
+    bottom: $slide-top-bottom-padding / 2;
+    left: $slide-left-right-padding;
+    background: url(../../images/google_developers_icon_128.png) no-repeat 0 50%;
+    @include background-size($brand-small-icon-size $brand-small-icon-size);
+    padding-left: $brand-small-icon-size + 10;
+    height: $brand-small-icon-size;
+    line-height: 1.9;
+  }
+  */
+}
+/* line 219, ../scss/default.scss */
+slides > slide:not(.nobackground):after {
+  font-size: 12pt;
+  content: attr(data-slide-num) "/" attr(data-total-slides);
+  position: absolute;
+  bottom: 20px;
+  right: 60px;
+  line-height: 1.9;
+}
+/* line 229, ../scss/default.scss */
+slides > slide.backdrop {
+  z-index: -10;
+  display: block !important;
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(85%, #ffffff), color-stop(100%, #e6e6e6));
+  background: -webkit-linear-gradient(#ffffff, #ffffff 85%, #e6e6e6);
+  background: -moz-linear-gradient(#ffffff, #ffffff 85%, #e6e6e6);
+  background: -o-linear-gradient(#ffffff, #ffffff 85%, #e6e6e6);
+  background: linear-gradient(#ffffff, #ffffff 85%, #e6e6e6);
+  background-color: white;
+}
+/* line 234, ../scss/default.scss */
+slides > slide.backdrop:after, slides > slide.backdrop:before {
+  display: none;
+}
+/* line 239, ../scss/default.scss */
+slides > slide > hgroup + article {
+  margin-top: 45px;
+}
+/* line 243, ../scss/default.scss */
+slides > slide > hgroup + article.flexbox.vcenter, slides > slide > hgroup + article.flexbox.vleft, slides > slide > hgroup + article.flexbox.vright {
+  height: 80%;
+}
+/* line 248, ../scss/default.scss */
+slides > slide > hgroup + article p {
+  margin-bottom: 1em;
+}
+/* line 253, ../scss/default.scss */
+slides > slide > article:only-child {
+  height: 100%;
+}
+/* line 256, ../scss/default.scss */
+slides > slide > article:only-child > iframe {
+  height: 98%;
+}
+
+/* line 262, ../scss/default.scss */
+slides.layout-faux-widescreen > slide {
+  padding: 40px 160px;
+}
+
+/* line 271, ../scss/default.scss */
+slides.layout-widescreen > slide,
+slides.layout-faux-widescreen > slide {
+  margin-left: -550px;
+  width: 1100px;
+}
+/* line 276, ../scss/default.scss */
+slides.layout-widescreen > slide.far-past,
+slides.layout-faux-widescreen > slide.far-past {
+  display: block;
+  display: none;
+  -webkit-transform: translate(-2260px);
+  -moz-transform: translate(-2260px);
+  -ms-transform: translate(-2260px);
+  -o-transform: translate(-2260px);
+  transform: translate(-2260px);
+  -webkit-transform: translate3d(-2260px, 0, 0);
+  -moz-transform: translate3d(-2260px, 0, 0);
+  -ms-transform: translate3d(-2260px, 0, 0);
+  -o-transform: translate3d(-2260px, 0, 0);
+  transform: translate3d(-2260px, 0, 0);
+}
+/* line 283, ../scss/default.scss */
+slides.layout-widescreen > slide.past,
+slides.layout-faux-widescreen > slide.past {
+  display: block;
+  opacity: 0;
+}
+/* line 290, ../scss/default.scss */
+slides.layout-widescreen > slide.current,
+slides.layout-faux-widescreen > slide.current {
+  display: block;
+  opacity: 1;
+}
+/* line 297, ../scss/default.scss */
+slides.layout-widescreen > slide.next,
+slides.layout-faux-widescreen > slide.next {
+  display: block;
+  opacity: 0;
+  pointer-events: none;
+}
+/* line 305, ../scss/default.scss */
+slides.layout-widescreen > slide.far-next,
+slides.layout-faux-widescreen > slide.far-next {
+  display: block;
+  display: none;
+  -webkit-transform: translate(2260px);
+  -moz-transform: translate(2260px);
+  -ms-transform: translate(2260px);
+  -o-transform: translate(2260px);
+  transform: translate(2260px);
+  -webkit-transform: translate3d(2260px, 0, 0);
+  -moz-transform: translate3d(2260px, 0, 0);
+  -ms-transform: translate3d(2260px, 0, 0);
+  -o-transform: translate3d(2260px, 0, 0);
+  transform: translate3d(2260px, 0, 0);
+}
+/* line 312, ../scss/default.scss */
+slides.layout-widescreen #prev-slide-area,
+slides.layout-faux-widescreen #prev-slide-area {
+  margin-left: -650px;
+}
+/* line 316, ../scss/default.scss */
+slides.layout-widescreen #next-slide-area,
+slides.layout-faux-widescreen #next-slide-area {
+  margin-left: 550px;
+}
+
+/* line 321, ../scss/default.scss */
+b {
+  font-weight: 600;
+}
+
+/* line 325, ../scss/default.scss */
+a {
+  color: #2a7cdf;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(42, 124, 223, 0.5);
+}
+/* line 330, ../scss/default.scss */
+a:hover {
+  color: black !important;
+}
+
+/* line 335, ../scss/default.scss */
+h1, h2, h3 {
+  font-weight: 600;
+}
+
+/* line 339, ../scss/default.scss */
+h2 {
+  font-size: 45px;
+  line-height: 45px;
+  letter-spacing: -2px;
+  color: #515151;
+}
+
+/* line 346, ../scss/default.scss */
+h3 {
+  font-size: 30px;
+  letter-spacing: -1px;
+  line-height: 2;
+  font-weight: inherit;
+  color: #494949;
+}
+
+/* line 354, ../scss/default.scss */
+ul {
+  margin-left: 1.2em;
+  margin-bottom: 1em;
+  position: relative;
+}
+/* line 359, ../scss/default.scss */
+ul li {
+  margin-bottom: 0.65em;
+}
+/* line 362, ../scss/default.scss */
+ul li ul {
+  margin-left: 2em;
+  margin-bottom: 0;
+}
+/* line 366, ../scss/default.scss */
+ul li ul li:before {
+  content: '-';
+  font-weight: 600;
+}
+/* line 373, ../scss/default.scss */
+ul > li:before {
+  content: '·';
+  margin-left: -1em;
+  position: absolute;
+  font-weight: 600;
+}
+/* line 380, ../scss/default.scss */
+ul ul {
+  margin-top: .5em;
+}
+/* line 384, ../scss/default.scss */
+ul a {
+  border-bottom: 0;
+}
+
+/* line 391, ../scss/default.scss */
+.highlight-code slide.current pre > * {
+  opacity: 0.25;
+  -webkit-transition: opacity 0.5s ease-in;
+  -moz-transition: opacity 0.5s ease-in;
+  -o-transition: opacity 0.5s ease-in;
+  transition: opacity 0.5s ease-in;
+}
+/* line 395, ../scss/default.scss */
+.highlight-code slide.current b {
+  opacity: 1;
+}
+
+/* line 400, ../scss/default.scss */
+pre {
+  font-family: 'Source Code Pro', 'Courier New', monospace;
+  font-size: 20px;
+  line-height: 28px;
+  padding: 10px 0 10px 60px;
+  letter-spacing: -1px;
+  margin-bottom: 20px;
+  width: 113%;
+  background-color: #e6e6e6;
+  left: -60px;
+  position: relative;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  overflow: auto;
+}
+/* line 414, ../scss/default.scss */
+pre[data-lang]:after {
+  content: attr(data-lang);
+  background-color: darkgrey;
+  right: 0;
+  top: 0;
+  position: absolute;
+  font-size: 16pt;
+  color: white;
+  padding: 2px 25px;
+  text-transform: uppercase;
+}
+
+/* line 427, ../scss/default.scss */
+pre[data-lang="go"] {
+  color: #333;
+}
+
+/* line 431, ../scss/default.scss */
+code {
+  font-size: 95%;
+  font-family: 'Source Code Pro', 'Courier New', monospace;
+  color: black;
+}
+
+/* line 437, ../scss/default.scss */
+iframe {
+  width: 100%;
+  height: 530px;
+  background: white;
+  border: 1px solid #e6e6e6;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 445, ../scss/default.scss */
+dt {
+  font-weight: bold;
+}
+
+/* line 449, ../scss/default.scss */
+button {
+  display: inline-block;
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(40%, #f9f9f9), color-stop(70%, #e3e3e3));
+  background: -webkit-linear-gradient(#f9f9f9 40%, #e3e3e3 70%);
+  background: -moz-linear-gradient(#f9f9f9 40%, #e3e3e3 70%);
+  background: -o-linear-gradient(#f9f9f9 40%, #e3e3e3 70%);
+  background: linear-gradient(#f9f9f9 40%, #e3e3e3 70%);
+  border: 1px solid darkgrey;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  padding: 5px 8px;
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  cursor: pointer;
+  text-shadow: 1px 1px white;
+  font-size: 10pt;
+}
+
+/* line 463, ../scss/default.scss */
+button:not(:disabled):hover {
+  border-color: #515151;
+}
+
+/* line 467, ../scss/default.scss */
+button:not(:disabled):active {
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(40%, #e3e3e3), color-stop(70%, #f9f9f9));
+  background: -webkit-linear-gradient(#e3e3e3 40%, #f9f9f9 70%);
+  background: -moz-linear-gradient(#e3e3e3 40%, #f9f9f9 70%);
+  background: -o-linear-gradient(#e3e3e3 40%, #f9f9f9 70%);
+  background: linear-gradient(#e3e3e3 40%, #f9f9f9 70%);
+}
+
+/* line 471, ../scss/default.scss */
+:disabled {
+  color: darkgrey;
+}
+
+/* line 475, ../scss/default.scss */
+.blue {
+  color: #4387fd;
+}
+
+/* line 478, ../scss/default.scss */
+.blue2 {
+  color: #3c8ef3;
+}
+
+/* line 481, ../scss/default.scss */
+.blue3 {
+  color: #2a7cdf;
+}
+
+/* line 484, ../scss/default.scss */
+.yellow {
+  color: #ffd14d;
+}
+
+/* line 487, ../scss/default.scss */
+.yellow2 {
+  color: #f9cc46;
+}
+
+/* line 490, ../scss/default.scss */
+.yellow3 {
+  color: #f6c000;
+}
+
+/* line 493, ../scss/default.scss */
+.green {
+  color: #0da861;
+}
+
+/* line 496, ../scss/default.scss */
+.green2 {
+  color: #00a86d;
+}
+
+/* line 499, ../scss/default.scss */
+.green3 {
+  color: #009f5d;
+}
+
+/* line 502, ../scss/default.scss */
+.red {
+  color: #f44a3f;
+}
+
+/* line 505, ../scss/default.scss */
+.red2 {
+  color: #e0543e;
+}
+
+/* line 508, ../scss/default.scss */
+.red3 {
+  color: #d94d3a;
+}
+
+/* line 511, ../scss/default.scss */
+.gray {
+  color: #e6e6e6;
+}
+
+/* line 514, ../scss/default.scss */
+.gray2 {
+  color: darkgrey;
+}
+
+/* line 517, ../scss/default.scss */
+.gray3 {
+  color: #494949;
+}
+
+/* line 520, ../scss/default.scss */
+.gray4 {
+  color: #515151;
+}
+
+/* line 524, ../scss/default.scss */
+.white {
+  color: white !important;
+}
+
+/* line 527, ../scss/default.scss */
+.black {
+  color: black !important;
+}
+
+/* line 531, ../scss/default.scss */
+.columns-2 {
+  -webkit-column-count: 2;
+  -moz-column-count: 2;
+  -ms-column-count: 2;
+  -o-column-count: 2;
+  column-count: 2;
+}
+
+/* line 535, ../scss/default.scss */
+table {
+  width: 100%;
+  border-collapse: -moz-initial;
+  border-collapse: initial;
+  border-spacing: 2px;
+  border-bottom: 1px solid #494949;
+}
+/* line 542, ../scss/default.scss */
+table tr > td:first-child, table th {
+  font-weight: 600;
+  color: #515151;
+}
+/* line 547, ../scss/default.scss */
+table tr:nth-child(odd) {
+  background-color: #e6e6e6;
+}
+/* line 551, ../scss/default.scss */
+table th {
+  color: white;
+  font-size: 18px;
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(40%, #4387fd), color-stop(80%, #2a7cdf)) no-repeat;
+  background: -webkit-linear-gradient(top, #4387fd 40%, #2a7cdf 80%) no-repeat;
+  background: -moz-linear-gradient(top, #4387fd 40%, #2a7cdf 80%) no-repeat;
+  background: -o-linear-gradient(top, #4387fd 40%, #2a7cdf 80%) no-repeat;
+  background: linear-gradient(top, #4387fd 40%, #2a7cdf 80%) no-repeat;
+}
+/* line 557, ../scss/default.scss */
+table td, table th {
+  font-size: 18px;
+  padding: 1em 0.5em;
+}
+/* line 562, ../scss/default.scss */
+table th.highlight {
+  color: #515151;
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(40%, #ffd14d), color-stop(80%, #f6c000)) no-repeat;
+  background: -webkit-linear-gradient(top, #ffd14d 40%, #f6c000 80%) no-repeat;
+  background: -moz-linear-gradient(top, #ffd14d 40%, #f6c000 80%) no-repeat;
+  background: -o-linear-gradient(top, #ffd14d 40%, #f6c000 80%) no-repeat;
+  background: linear-gradient(top, #ffd14d 40%, #f6c000 80%) no-repeat;
+}
+/* line 566, ../scss/default.scss */
+table td.highlight {
+  color: #515151;
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(40%, #ffd14d), color-stop(80%, #f6c000)) no-repeat;
+  background: -webkit-linear-gradient(top, #ffd14d 40%, #f6c000 80%) no-repeat;
+  background: -moz-linear-gradient(top, #ffd14d 40%, #f6c000 80%) no-repeat;
+  background: -o-linear-gradient(top, #ffd14d 40%, #f6c000 80%) no-repeat;
+  background: linear-gradient(top, #ffd14d 40%, #f6c000 80%) no-repeat;
+}
+/* line 571, ../scss/default.scss */
+table.rows {
+  border-bottom: none;
+  border-right: 1px solid #494949;
+}
+
+/* line 577, ../scss/default.scss */
+q {
+  font-size: 41px;
+  line-height: 62px;
+}
+/* line 581, ../scss/default.scss */
+q:before {
+  content: '“';
+  position: absolute;
+  margin-left: -0.5em;
+}
+/* line 586, ../scss/default.scss */
+q:after {
+  content: '”';
+  position: absolute;
+  margin-left: 0.1em;
+}
+
+/* line 593, ../scss/default.scss */
+slide.fill {
+  background-repeat: no-repeat;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+/* line 598, ../scss/default.scss */
+slide.full {
+  padding: 0;
+  background: black;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+  border-radius: 0;
+  text-align: center;
+}
+
+/* line 604, ../scss/default.scss */
+video {
+  width: 96%;
+  height: 96%;
+}
+
+/* line 608, ../scss/default.scss */
+.full .source {
+  bottom: 0;
+}
+
+/* line 611, ../scss/default.scss */
+.full .source a, .dark .source a {
+  color: #b8d0ee;
+}
+
+/* line 614, ../scss/default.scss */
+.full .source a:hover, .dark .source a:hover {
+  color: white !important;
+}
+
+/* Size variants */
+/* line 621, ../scss/default.scss */
+article.smaller p, article.smaller ul {
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: 0;
+}
+/* line 627, ../scss/default.scss */
+article.smaller table td, article.smaller table th {
+  font-size: 14px;
+}
+/* line 631, ../scss/default.scss */
+article.smaller pre {
+  font-size: 15px;
+  line-height: 20px;
+  letter-spacing: 0;
+}
+/* line 636, ../scss/default.scss */
+article.smaller q {
+  font-size: 40px;
+  line-height: 48px;
+}
+/* line 640, ../scss/default.scss */
+article.smaller q:before, article.smaller q:after {
+  font-size: 60px;
+}
+
+/* Builds */
+/* line 649, ../scss/default.scss */
+.build > * {
+  -webkit-transition: opacity 0.5s ease-in-out;
+  -webkit-transition-delay: 0.2s;
+  -moz-transition: opacity 0.5s ease-in-out 0.2s;
+  -o-transition: opacity 0.5s ease-in-out 0.2s;
+  transition: opacity 0.5s ease-in-out 0.2s;
+}
+/* line 653, ../scss/default.scss */
+.build .to-build {
+  opacity: 0;
+}
+/* line 657, ../scss/default.scss */
+.build .build-fade {
+  opacity: 0.3;
+}
+/* line 660, ../scss/default.scss */
+.build .build-fade:hover {
+  opacity: 1.0;
+}
+
+/* line 667, ../scss/default.scss */
+.popup .next .build .to-build {
+  opacity: 1;
+}
+/* line 671, ../scss/default.scss */
+.popup .next .build .build-fade {
+  opacity: 1;
+}
+
+/* Pretty print */
+/* line 679, ../scss/default.scss */
+.prettyprint .str,
+.prettyprint .atv {
+  /* a markup attribute value */
+  color: #009f5d;
+}
+
+/* line 683, ../scss/default.scss */
+.prettyprint .kwd,
+.prettyprint .tag {
+  /* a markup tag name */
+  color: #0066cc;
+}
+
+/* line 686, ../scss/default.scss */
+.prettyprint .com {
+  /* a comment */
+  color: #494949;
+  font-style: italic;
+}
+
+/* line 690, ../scss/default.scss */
+.prettyprint .lit {
+  /* a literal value */
+  color: #7f0000;
+}
+
+/* line 695, ../scss/default.scss */
+.prettyprint .pun,
+.prettyprint .opn,
+.prettyprint .clo {
+  color: #515151;
+}
+
+/* line 701, ../scss/default.scss */
+.prettyprint .typ,
+.prettyprint .atn,
+.prettyprint .dec,
+.prettyprint .var {
+  /* a declaration; a variable name */
+  color: #d94d3a;
+}
+
+/* line 704, ../scss/default.scss */
+.prettyprint .pln {
+  color: #515151;
+}
+
+/* line 708, ../scss/default.scss */
+.note {
+  position: absolute;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  padding: 1em;
+  background: rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  pointer-events: none;
+  text-align: left;
+  display: -webkit-box !important;
+  display: -moz-box !important;
+  display: -ms-box !important;
+  display: -o-box !important;
+  display: box !important;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -ms-box-orient: vertical;
+  box-orient: vertical;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -ms-box-align: center;
+  box-align: center;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -ms-box-pack: center;
+  box-pack: center;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transform: translateY(350px);
+  -moz-transform: translateY(350px);
+  -ms-transform: translateY(350px);
+  -o-transform: translateY(350px);
+  transform: translateY(350px);
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+/* line 727, ../scss/default.scss */
+.note > section {
+  color: black;
+  background: #fff;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 0 10px #494949;
+  -moz-box-shadow: 0 0 10px #494949;
+  box-shadow: 0 0 10px #494949;
+  width: 60%;
+  padding: 2em;
+}
+
+/* line 745, ../scss/default.scss */
+.with-notes.popup slides.layout-widescreen slide.next,
+.with-notes.popup slides.layout-faux-widescreen slide.next {
+  -webkit-transform: translate3d(690px, 80px, 0) scale(0.35);
+  -moz-transform: translate3d(690px, 80px, 0) scale(0.35);
+  -ms-transform: translate3d(690px, 80px, 0) scale(0.35);
+  -o-transform: translate3d(690px, 80px, 0) scale(0.35);
+  transform: translate3d(690px, 80px, 0) scale(0.35);
+}
+/* line 748, ../scss/default.scss */
+.with-notes.popup slides.layout-widescreen slide .note,
+.with-notes.popup slides.layout-faux-widescreen slide .note {
+  -webkit-transform: translate3d(285px, 765px, 0) scale(1.5);
+  -moz-transform: translate3d(285px, 765px, 0) scale(1.5);
+  -ms-transform: translate3d(285px, 765px, 0) scale(1.5);
+  -o-transform: translate3d(285px, 765px, 0) scale(1.5);
+  transform: translate3d(285px, 765px, 0) scale(1.5);
+}
+/* line 754, ../scss/default.scss */
+.with-notes.popup slide {
+  overflow: visible;
+  background: white;
+  -webkit-transition: none;
+  -moz-transition: none;
+  -o-transition: none;
+  transition: none;
+  pointer-events: none;
+  -webkit-transform-origin: 0 0;
+  -moz-transform-origin: 0 0;
+  -ms-transform-origin: 0 0;
+  -o-transform-origin: 0 0;
+  transform-origin: 0 0;
+}
+/* line 761, ../scss/default.scss */
+.with-notes.popup slide:not(.backdrop) {
+  -webkit-transform: scale(0.6) translate3d(0.5em, 0.5em, 0);
+  -moz-transform: scale(0.6) translate3d(0.5em, 0.5em, 0);
+  -ms-transform: scale(0.6) translate3d(0.5em, 0.5em, 0);
+  -o-transform: scale(0.6) translate3d(0.5em, 0.5em, 0);
+  transform: scale(0.6) translate3d(0.5em, 0.5em, 0);
+  -webkit-box-shadow: 0 0 10px #494949;
+  -moz-box-shadow: 0 0 10px #494949;
+  box-shadow: 0 0 10px #494949;
+}
+/* line 766, ../scss/default.scss */
+.with-notes.popup slide.backdrop {
+  background-image: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 600, color-stop(0%, #b1dfff), color-stop(100%, #4387fd));
+  background-image: -webkit-radial-gradient(50% 50%, #b1dfff 0%, #4387fd 600px);
+  background-image: -moz-radial-gradient(50% 50%, #b1dfff 0%, #4387fd 600px);
+  background-image: -o-radial-gradient(50% 50%, #b1dfff 0%, #4387fd 600px);
+  background-image: radial-gradient(50% 50%, #b1dfff 0%, #4387fd 600px);
+}
+/* line 772, ../scss/default.scss */
+.with-notes.popup slide.next {
+  -webkit-transform: translate3d(570px, 80px, 0) scale(0.35);
+  -moz-transform: translate3d(570px, 80px, 0) scale(0.35);
+  -ms-transform: translate3d(570px, 80px, 0) scale(0.35);
+  -o-transform: translate3d(570px, 80px, 0) scale(0.35);
+  transform: translate3d(570px, 80px, 0) scale(0.35);
+  opacity: 1 !important;
+}
+/* line 776, ../scss/default.scss */
+.with-notes.popup slide.next .note {
+  display: none !important;
+}
+/* line 782, ../scss/default.scss */
+.with-notes.popup .note {
+  width: 112%;
+  height: 310px;
+  background: #e6e6e6;
+  padding: 0;
+  -webkit-box-shadow: 0 0 10px #494949;
+  -moz-box-shadow: 0 0 10px #494949;
+  box-shadow: 0 0 10px #494949;
+  -webkit-transform: translate3d(250px, 800px, 0) scale(1.5);
+  -moz-transform: translate3d(250px, 800px, 0) scale(1.5);
+  -ms-transform: translate3d(250px, 800px, 0) scale(1.5);
+  -o-transform: translate3d(250px, 800px, 0) scale(1.5);
+  transform: translate3d(250px, 800px, 0) scale(1.5);
+  -webkit-transition: opacity 400ms ease-in-out;
+  -moz-transition: opacity 400ms ease-in-out;
+  -o-transition: opacity 400ms ease-in-out;
+  transition: opacity 400ms ease-in-out;
+}
+/* line 793, ../scss/default.scss */
+.with-notes.popup .note > section {
+  background: #fff;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  height: 100%;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  overflow: auto;
+  padding: 1em;
+}
+/* line 806, ../scss/default.scss */
+.with-notes .note {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+  -moz-transform: translateY(0);
+  -ms-transform: translateY(0);
+  -o-transform: translateY(0);
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* line 813, ../scss/default.scss */
+.source {
+  font-size: 14px;
+  color: darkgrey;
+  position: absolute;
+  bottom: 20px;
+  left: 60px;
+}
+
+/* line 821, ../scss/default.scss */
+.centered {
+  text-align: center;
+}
+
+/* line 825, ../scss/default.scss */
+.reflect {
+  -webkit-box-reflect: below 3px -webkit-linear-gradient(rgba(255, 255, 255, 0) 85%, white 150%);
+  -moz-box-reflect: below 3px -moz-linear-gradient(rgba(255, 255, 255, 0) 85%, white 150%);
+  -o-box-reflect: below 3px -o-linear-gradient(rgba(255, 255, 255, 0) 85%, white 150%);
+  -ms-box-reflect: below 3px -ms-linear-gradient(rgba(255, 255, 255, 0) 85%, white 150%);
+  box-reflect: below 3px linear-gradient(rgba(255, 255, 255, 0) 85%, #ffffff 150%);
+}
+
+/* line 833, ../scss/default.scss */
+.flexbox {
+  display: -webkit-box !important;
+  display: -moz-box !important;
+  display: -ms-box !important;
+  display: -o-box !important;
+  display: box !important;
+}
+
+/* line 837, ../scss/default.scss */
+.flexbox.vcenter {
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -ms-box-orient: vertical;
+  box-orient: vertical;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -ms-box-align: center;
+  box-align: center;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -ms-box-pack: center;
+  box-pack: center;
+  height: 100%;
+  width: 100%;
+}
+
+/* line 843, ../scss/default.scss */
+.flexbox.vleft {
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -ms-box-orient: vertical;
+  box-orient: vertical;
+  -webkit-box-align: left;
+  -moz-box-align: left;
+  -ms-box-align: left;
+  box-align: left;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -ms-box-pack: center;
+  box-pack: center;
+  height: 100%;
+  width: 100%;
+}
+
+/* line 849, ../scss/default.scss */
+.flexbox.vright {
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -ms-box-orient: vertical;
+  box-orient: vertical;
+  -webkit-box-align: end;
+  -moz-box-align: end;
+  -ms-box-align: end;
+  box-align: end;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -ms-box-pack: center;
+  box-pack: center;
+  height: 100%;
+  width: 100%;
+}
+
+/* line 855, ../scss/default.scss */
+.auto-fadein {
+  -webkit-transition: opacity 0.6s ease-in;
+  -webkit-transition-delay: 1s;
+  -moz-transition: opacity 0.6s ease-in 1s;
+  -o-transition: opacity 0.6s ease-in 1s;
+  transition: opacity 0.6s ease-in 1s;
+  opacity: 0;
+}
+
+/* Clickable/tappable areas */
+/* line 861, ../scss/default.scss */
+.slide-area {
+  z-index: 1000;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100px;
+  height: 700px;
+  left: 50%;
+  top: 50%;
+  cursor: pointer;
+  margin-top: -350px;
+}
+
+/* line 878, ../scss/default.scss */
+#prev-slide-area {
+  margin-left: -550px;
+}
+
+/* line 883, ../scss/default.scss */
+#next-slide-area {
+  margin-left: 450px;
+}
+
+/* ===== SLIDE CONTENT ===== */
+/* line 891, ../scss/default.scss */
+.logoslide img {
+  width: 383px;
+  height: 92px;
+}
+
+/* line 897, ../scss/default.scss */
+.segue {
+  padding: 60px 120px;
+}
+/* line 900, ../scss/default.scss */
+.segue h2 {
+  font-size: 56px;
+  line-height: 50px;
+}
+/* line 904, ../scss/default.scss */
+.segue h3 {
+  margin-top: .7em;
+  line-height: 1.5;
+}
+/* line 908, ../scss/default.scss */
+.segue h3 ~ h3 {
+  margin-top: 0;
+}
+/* line 911, ../scss/default.scss */
+.segue hgroup {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+/* line 922, ../scss/default.scss */
+.segue.dark h2 {
+  color: #e6e6e6;
+}
+/* line 925, ../scss/default.scss */
+.segue.dark h3 {
+  color: #e6e6e6;
+}
+
+/* line 930, ../scss/default.scss */
+.big h2 {
+  font-size: 92px;
+  line-height: 80px;
+}
+
+/* line 936, ../scss/default.scss */
+.strike {
+  text-decoration: line-through;
+}
+
+/* line 940, ../scss/default.scss */
+.thank-you-slide {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+}
+/* line 945, ../scss/default.scss */
+.thank-you-slide h2 {
+  font-size: 60px;
+  color: inherit;
+}
+/* line 950, ../scss/default.scss */
+.thank-you-slide article {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+/* line 958, ../scss/default.scss */
+.thank-you-slide ul > li:before {
+  content: '';
+}
+/* line 961, ../scss/default.scss */
+.thank-you-slide ul {
+  display: table;
+}
+/* line 964, ../scss/default.scss */
+.thank-you-slide li {
+  display: table-row;
+}
+/* line 967, ../scss/default.scss */
+.thank-you-slide li > span {
+  padding: 0.5em 1em;
+  display: table-cell;
+  text-align: right;
+  text-shadow: 0 0 7px;
+}
+/* line 973, ../scss/default.scss */
+.thank-you-slide li > a {
+  display: table-cell;
+  text-align: left;
+}
+
+/* line 983, ../scss/default.scss */
+.title-slide hgroup h1 {
+  font-size: 76px;
+  line-height: 1.4;
+  letter-spacing: -3px;
+  color: #515151;
+}
+/* line 990, ../scss/default.scss */
+.title-slide hgroup h2 {
+  font-size: 72px;
+  line-height: 72px;
+  font-weight: inherit;
+}
+/* line 996, ../scss/default.scss */
+.title-slide hgroup p {
+  font-size: 43px;
+  color: #494949;
+  line-height: 1.3;
+  margin-top: 2em;
+}
+
+/* line 1005, ../scss/default.scss */
+.map {
+  background: #A5BFDD;
+}
+
+/* line 1009, ../scss/default.scss */
+.img-overlay {
+  text-align: justify;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border-radius: 5px;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.7);
+  top: 55%;
+  left: 0;
+  margin-left: -5px;
+  padding: 20px;
+}
+/* line 1019, ../scss/default.scss */
+.img-overlay h2, .img-overlay h3 {
+  color: white;
+}
+
+/* line 1023, ../scss/default.scss */
+.img-overlay-right {
+  left: auto;
+  right: 0;
+  margin-left: 0;
+  margin-right: -5px;
+}
+
+/* line 1031, ../scss/default.scss */
+cite {
+  display: block;
+  margin-top: 1em;
+}
+
+/* line 1036, ../scss/default.scss */
+body {
+  -webkit-transition: -webkit-filter 1s ease-in-out;
+  -moz-transition: -webkit-filter 1s ease-in-out;
+  -o-transition: -webkit-filter 1s ease-in-out;
+  transition: -webkit-filter 1s ease-in-out;
+}
+
+/* line 1039, ../scss/default.scss */
+.blur-black {
+  -webkit-filter: blur(50px);
+}
+
+/* line 1042, ../scss/default.scss */
+.blur-strong {
+  -webkit-filter: blur(21px);
+}
+
+/* line 1045, ../scss/default.scss */
+.blur-medium {
+  -webkit-filter: blur(14px);
+}
+
+/* line 1048, ../scss/default.scss */
+.blur-weak {
+  -webkit-filter: blur(7px);
+}
+
+/* line 1051, ../scss/default.scss */
+.blur-none {
+  -webkit-filter: blur(0px);
+}
+
+/* line 1055, ../scss/default.scss */
+body.with-notes {
+  -webkit-filter: none !important;
+}
+
+/* line 1059, ../scss/default.scss */
+.quote {
+  color: white;
+}
+/* line 1062, ../scss/default.scss */
+.quote .author {
+  font-size: 24px;
+  position: absolute;
+  bottom: 80px;
+  line-height: 1.4;
+}
+
+/* line 1071, ../scss/default.scss */
+[data-config-contact] span {
+  width: 115px;
+  display: inline-block;
+}
+
+/* line 1080, ../scss/default.scss */
+.overview.popup .note {
+  display: none !important;
+}
+/* line 1086, ../scss/default.scss */
+.overview slides slide {
+  display: block;
+  cursor: pointer;
+  opacity: 0.5;
+  pointer-events: auto !important;
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(85%, #ffffff), color-stop(100%, #e6e6e6));
+  background: -webkit-linear-gradient(#ffffff, #ffffff 85%, #e6e6e6);
+  background: -moz-linear-gradient(#ffffff, #ffffff 85%, #e6e6e6);
+  background: -o-linear-gradient(#ffffff, #ffffff 85%, #e6e6e6);
+  background: linear-gradient(#ffffff, #ffffff 85%, #e6e6e6);
+  background-color: white;
+}
+/* line 1087, ../scss/default.scss */
+.overview slides slide.backdrop {
+  display: none !important;
+}
+/* line 1102, ../scss/default.scss */
+.overview slides slide.far-past, .overview slides slide.past, .overview slides slide.next, .overview slides slide.far-next, .overview slides slide.far-past {
+  opacity: 0.5;
+  display: block;
+}
+/* line 1107, ../scss/default.scss */
+.overview slides slide.current {
+  opacity: 1;
+}
+/* line 1113, ../scss/default.scss */
+.overview .slide-area {
+  display: none;
+}
+
+@media print {
+  /* line 1120, ../scss/default.scss */
+  slides slide {
+    display: block !important;
+    position: relative;
+    background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(85%, #ffffff), color-stop(100%, #e6e6e6));
+    background: -webkit-linear-gradient(#ffffff, #ffffff 85%, #e6e6e6);
+    background: -moz-linear-gradient(#ffffff, #ffffff 85%, #e6e6e6);
+    background: -o-linear-gradient(#ffffff, #ffffff 85%, #e6e6e6);
+    background: linear-gradient(#ffffff, #ffffff 85%, #e6e6e6);
+    background-color: white;
+    -webkit-transform: none !important;
+    -moz-transform: none !important;
+    -ms-transform: none !important;
+    -o-transform: none !important;
+    transform: none !important;
+    width: 100%;
+    height: 100%;
+    page-break-after: always;
+    top: auto !important;
+    left: auto !important;
+    margin-top: 0 !important;
+    margin-left: 0 !important;
+    opacity: 1 !important;
+    color: #555;
+  }
+  /* line 1140, ../scss/default.scss */
+  slides slide.far-past, slides slide.past, slides slide.next, slides slide.far-next, slides slide.far-past, slides slide.current {
+    opacity: 1 !important;
+    display: block !important;
+  }
+  /* line 1146, ../scss/default.scss */
+  slides slide .build > * {
+    -webkit-transition: none;
+    -moz-transition: none;
+    -o-transition: none;
+    transition: none;
+  }
+  /* line 1151, ../scss/default.scss */
+  slides slide .build .to-build,
+  slides slide .build .build-fade {
+    opacity: 1;
+  }
+  /* line 1156, ../scss/default.scss */
+  slides slide .auto-fadein {
+    opacity: 1 !important;
+  }
+  /* line 1160, ../scss/default.scss */
+  slides slide.backdrop {
+    display: none !important;
+  }
+  /* line 1164, ../scss/default.scss */
+  slides slide table.rows {
+    border-right: 0;
+  }
+  /* line 1169, ../scss/default.scss */
+  slides slide[hidden] {
+    display: none !important;
+  }
+
+  /* line 1174, ../scss/default.scss */
+  .slide-area {
+    display: none;
+  }
+
+  /* line 1178, ../scss/default.scss */
+  .reflect {
+    -webkit-box-reflect: none;
+    -moz-box-reflect: none;
+    -o-box-reflect: none;
+    -ms-box-reflect: none;
+    box-reflect: none;
+  }
+
+  /* line 1186, ../scss/default.scss */
+  pre, code {
+    font-family: monospace !important;
+  }
+}
