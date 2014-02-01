@@ -936,6 +936,19 @@ article.smaller {
   }
 }
 
+.wood {
+  background: brown url(../../images/wood-texture.jpg) center no-repeat;
+  background-size: 100%;
+  hgroup {
+    border-radius: 35px;
+    padding: 40px;
+    background: rgba(90,90,90,0.8);
+    h2, h3 {
+      color: white;
+    }
+  }
+}
+
 .strike {
   text-decoration: line-through;
 }
