@@ -79,7 +79,7 @@ strong, b {
   font-weight: bold;
 }
 
-slides > slide[hidden] {
+slides slide[hidden] {
   display: none !important;
 }
 
@@ -95,7 +95,7 @@ slides {
   @include transition(opacity 800ms ease-in 100ms); // Add small delay to prevent jank.
 }
 
-slides > slide {
+slides slide {
   display: block;
   position: absolute;
   overflow: hidden;
