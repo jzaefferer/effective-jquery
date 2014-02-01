@@ -915,6 +915,8 @@ article.smaller {
   hgroup {
     background: rgba(90, 90, 90, 0.9);
     border-radius: 38px;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 0;
     padding: 48px;
   }
   h2, h3 {
@@ -942,6 +944,8 @@ article.smaller {
   // background: rgb(7, 13, 46) !important;
   // color: white;
   @include border-radius(5px);
+  background: url(../../images/road-texture.jpg) center no-repeat !important;
+  background-size: 100%;
 
   h2 {
     font-size: 60px;
@@ -949,6 +953,12 @@ article.smaller {
   }
 
   article {
+    background: rgba(90, 90, 90, 0.9);
+    border-radius: 38px;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 0;
+    padding: 48px;
+
     position: relative;
     top: 50%;
     -webkit-transform: translateY(-50%);
@@ -960,6 +970,7 @@ article.smaller {
     content: '';
   }
   ul {
+    margin: 0;
     display: table;
   }
   li {
@@ -970,10 +981,12 @@ article.smaller {
     display: table-cell;
     text-align: right;
     text-shadow: 0 0 7px;
+    color: white;
   }
   li > a {
     display: table-cell;
     text-align: left;
+    color: yellow;
   }
 }
 
