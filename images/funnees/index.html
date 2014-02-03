@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<head>
+<style>
+body {
+	background: black;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+}
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+</style>
+</head>
+<body>
+<script>
+var images = [
+	"4wks.old.JPG",
+	"Pick-Up-Truck-Meme.jpg",
+	"ebay-parts.jpg",
+	"get-in-the-car-meme.jpg",
+	"horsepower.jpg",
+	"installed-subs.jpg",
+	"invisible.jpg",
+	"just-get-in-the-car-dog.jpg",
+	"ocd-fuel.png",
+	"spoiler-alert.png",
+	"stock-suspension.jpg",
+	"windshield-wipers.jpg"
+];
+var index = 0;
+var img = document.createElement("img");
+img.src = images[index];
+document.body.appendChild(img);
+setInterval(function() {
+	index += 1;
+	if (index === images.length) {
+		index = 0;
+	}
+	img.src = images[index];
+}, 5000);
+</script>
+</body>

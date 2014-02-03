@@ -1,100 +1,109 @@
 <!DOCTYPE html>
-<label>Who are you? <input id="autocomplete"></label>
+<html>
+<head>
+  <title>Lazy init of autocomplete</title>
+  <link rel="stylesheet" href="demos.css">
+  <link rel="stylesheet" href="vendor/jquery-ui-1.10.4.custom.css">
+  <style>
+  .ui-menu {
+    max-height: 250px;
+    overflow: auto;
+  }
+  #accounts {
+    width: 20em;
+  }
+  </style>
+</head>
+<body>
+  <p>
+    <label>Who are you? <input type="text" id="autocomplete"></label>
+  </p>
 
-<table id="accounts">
-  <thead>
-    <tr>
-      <th>Account</th>
-      <th>Manager</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Account X</td>
-      <td><input class="autocomplete"></td>
-    </tr>
-    <tr>
-      <td>Account Y</td>
-      <td><input class="autocomplete"></td>
-    </tr>
-    <tr>
-      <td>Account Z</td>
-      <td><input class="autocomplete"></td>
-    </tr>
-  </tbody>
-</table>
+  <table id="accounts">
+    <caption>Accounts</caption>
+    <thead>
+      <tr>
+        <th>Account</th>
+        <th>Manager</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Account X</td>
+        <td><input type="text" class="autocomplete"></td>
+      </tr>
+      <tr>
+        <td>Account Y</td>
+        <td><input type="text" class="autocomplete"></td>
+      </tr>
+      <tr>
+        <td>Account Z</td>
+        <td><input type="text" class="autocomplete"></td>
+      </tr>
+    </tbody>
+  </table>
 
-<style>
-body {
-  font-family: sans-serif;
-}
-.ui-autocomplete-input {
-  background-color: #eee;
-}
-.ui-menu {
-  max-height: 250px;
-  overflow: auto;
-}
-</style>
-<link rel="stylesheet" href="vendor/jquery-ui-1.10.4.custom.css">
-<script src="vendor/jquery.js"></script>
-<script src="vendor/jquery-ui-1.10.4.custom.js"></script>
-<script>
-var names = [
-  "Torkil Tjalfsson",
-  "Herolf Röngvaldsson",
-  "Bjeri Thuresson",
-  "Halmar Bjornsson",
-  "Herolf Jandasson",
-  "Torstor Tjalsson",
-  "Thinmar Walkirsson",
-  "Garald Akisson",
-  "Gunn Thinmarsson",
-  "Frenjar Hjelgirasson",
-  "Hardger Kjaskasson",
-  "Torlif Trondesson",
-  "Tevil Gunnisson",
-  "Thurbold Ansirsson",
-  "Aki Thivarsson",
-  "Noerre Ansgarsson",
-  "Torgal Torlindsson",
-  "Tevil Akjasson",
-  "Ansgar Jadrasson",
-  "Rodi Liskolfsson",
-  "Tevil Swafgardsson",
-  "Solva Garheltsdottir",
-  "Hallbera Garheltsdottir",
-  "Olverja Rangnidsdottir",
-  "Eindara Grimasdottir",
-  "Ragna Alfhildsdottir",
-  "Raska Sigrunsdottir",
-  "Olgerda Akjasdottir",
-  "Garhilda Bridgerasdottir",
-  "Fridgera Thuresdottir",
-  "Hjora Hjallsdottir",
-  "Bridgera Alvidasdottir",
-  "Hardsgera Brydasdottir",
-  "Garhelt Karisdottir",
-  "Eyvin Thorallasdottir",
-  "Eldgrima Akisdottir",
-  "Hjelgira Wulflindasdottir",
-  "Andra Eindarasdottir",
-  "Andra Gundasdottir",
-  "Bryda Fridgerasdottir",
-  "Sigrun Wulfhildasdottir",
-  "Eldgrima Rorleifsdottir"
-];
-names.sort();
-$("#autocomplete").one("focus", function() {
-  $(this).autocomplete({
-    source: names
+
+  <script src="vendor/jquery.js"></script>
+  <script src="vendor/jquery-ui-1.10.4.custom.js"></script>
+  <script>
+  var names = [
+    "Torkil Tjalfsson",
+    "Herolf Röngvaldsson",
+    "Bjeri Thuresson",
+    "Halmar Bjornsson",
+    "Herolf Jandasson",
+    "Torstor Tjalsson",
+    "Thinmar Walkirsson",
+    "Garald Akisson",
+    "Gunn Thinmarsson",
+    "Frenjar Hjelgirasson",
+    "Hardger Kjaskasson",
+    "Torlif Trondesson",
+    "Tevil Gunnisson",
+    "Thurbold Ansirsson",
+    "Aki Thivarsson",
+    "Noerre Ansgarsson",
+    "Torgal Torlindsson",
+    "Tevil Akjasson",
+    "Ansgar Jadrasson",
+    "Rodi Liskolfsson",
+    "Tevil Swafgardsson",
+    "Solva Garheltsdottir",
+    "Hallbera Garheltsdottir",
+    "Olverja Rangnidsdottir",
+    "Eindara Grimasdottir",
+    "Ragna Alfhildsdottir",
+    "Raska Sigrunsdottir",
+    "Olgerda Akjasdottir",
+    "Garhilda Bridgerasdottir",
+    "Fridgera Thuresdottir",
+    "Hjora Hjallsdottir",
+    "Bridgera Alvidasdottir",
+    "Hardsgera Brydasdottir",
+    "Garhelt Karisdottir",
+    "Eyvin Thorallasdottir",
+    "Eldgrima Akisdottir",
+    "Hjelgira Wulflindasdottir",
+    "Andra Eindarasdottir",
+    "Andra Gundasdottir",
+    "Bryda Fridgerasdottir",
+    "Sigrun Wulfhildasdottir",
+    "Eldgrima Rorleifsdottir"
+  ];
+  names.sort();
+  $("#autocomplete").one("focus", function() {
+    $(this).autocomplete({
+      source: names
+    });
   });
-});
-// initializing a big table with a few dozen or even hundreds of autocompletes on
-// page load would take a while, this is more efficient
-$("#accounts").on("focus", "input.autocomplete", function() {
-  $(this).removeClass("autocomplete").autocomplete({
-    source: names
+  // initializing a big table with a few dozen or even hundreds of autocompletes on
+  // page load would take a while, this is more efficient
+  $("#accounts").on("focus", "input.autocomplete", function() {
+    $(this).removeClass("autocomplete").autocomplete({
+      source: names
+    });
   });
-});
-</script>
+  </script>
+</body>
+</html>
