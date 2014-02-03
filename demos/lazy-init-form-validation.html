@@ -1,44 +1,50 @@
 <!DOCTYPE html>
-<form id="commentForm">
-  <fieldset>
-    <legend>Please provide your name, email address (won't be published) and a comment</legend>
-    <p>
-      <label for="name">Name (required, at least 2 characters)</label>
-      <input id="name" name="name" minlength="2" type="text" required/>
-    </p>
-    <p>
-      <label for="email">E-Mail (required)</label>
-      <input id="email" type="email" name="email" required/>
-    </p>
-    <p>
-      <label for="url">URL (optional)</label>
-      <input id="url" type="url" name="url"/>
-    </p>
-    <p>
-      <label for="comment">Your comment (required)</label>
-      <textarea id="comment" name="comment" required></textarea>
-    </p>
-    <p>
-      <input class="submit" type="submit" value="Submit"/>
-    </p>
-  </fieldset>
-</form>
+<html>
+<head>
+  <title>Lazy init of form validation</title>
+  <link rel="stylesheet" href="demos.css">
+  <link rel="stylesheet" href="vendor/jquery-ui-1.10.4.custom.css">
+  <style>
+  label.error {
+    color: red;
+  }
+  </style>
+</head>
+<body>
+  <form id="commentForm">
+    <fieldset>
+      <legend>What would you like to tell us?</legend>
+      <p>
+        <label for="name">Name (required, at least 2 characters)</label>
+        <input id="name" name="name" minlength="2" type="text" required>
+      </p>
+      <p>
+        <label for="email">E-Mail (required)</label>
+        <input id="email" type="email" name="email" required>
+      </p>
+      <p>
+        <label for="url">URL (optional)</label>
+        <input id="url" type="url" name="url">
+      </p>
+      <p>
+        <label for="comment">Your comment (required)</label>
+        <textarea id="comment" name="comment" required></textarea>
+      </p>
+      <p>
+        <button type="submit">Submit</button>
+      </p>
+    </fieldset>
+  </form>
 
-<style>
-form[novalidate] {
-	background-color: #eee;
-}
-label.error {
-	color: red;
-}
-</style>
-<script src="vendor/jquery.js"></script>
-<script src="vendor/jquery.validate.js"></script>
-<script>
-// jQuery makes focus event bubble only when using event delegation
-// in this case, we don't care what element receives focus,
-// so focusin does the trick
-$("form").one("focusin", function() {
-  $(this).validate();
-});
-</script>
+  <script src="vendor/jquery.js"></script>
+  <script src="vendor/jquery.validate.js"></script>
+  <script>
+  // jQuery makes focus event bubble only when using event delegation
+  // in this case, we don't care what element receives focus,
+  // so focusin does the trick
+  $("form").one("focusin", function() {
+    $(this).validate();
+  });
+  </script>
+</body>
+</html>

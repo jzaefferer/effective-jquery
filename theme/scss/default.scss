@@ -197,8 +197,7 @@ slides slide {
 
   &.dark {
     // background: $gray-4 !important;
-    background: url(../../images/road-texture.jpg) center no-repeat !important;
-    background-size: 100%;
+    background: url(../../images/road-texture.jpg) center no-repeat;
   }
 
   &:not(.nobackground) {
@@ -425,7 +424,7 @@ code {
 
 iframe {
   width: 100%;
-  height: $slide-height - ($slide-top-bottom-padding * 2) - ($article-content-top-padding * 2);
+  height: $slide-height - ($slide-top-bottom-padding * 2) - ($article-content-top-padding * 2) - 10;
   background: white;
   border: 1px solid $gray-1;
   @include box-sizing(border-box);
@@ -902,28 +901,16 @@ article.smaller {
     margin-top: 0;
   }
   hgroup {
-    // margin-top: 220px;
-    // TODO apply this elsewhere; check for bad margin-top
-    position: relative;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-    ms-transform: translateY(-50%);
-    transform: translateY(-50%);
+    margin-top: 60px;
   }
 }
 .segue.dark {
   hgroup {
-    background: rgba(90, 90, 90, 0.9);
-    border-radius: 38px;
-    border-top-right-radius: 0;
-    border-bottom-left-radius: 0;
-    padding: 48px;
-  }
-  h2, h3 {
-    // text-shadow: 0 3px 3px black;
+    @include bgbox;
   }
   h2 {
-    color: white;
+    color: #F5DC43;
+    text-shadow: 0px 2px 6px #333;
   }
   h3 {
     color: white;
@@ -940,10 +927,12 @@ article.smaller {
   background: brown url(../../images/wood-texture.jpg) center no-repeat;
   background-size: 100%;
   hgroup {
-    border-radius: 35px;
-    padding: 40px;
-    background: rgba(90,90,90,0.8);
-    h2, h3 {
+    @include bgbox;
+    h2 {
+      color: #F5DC43;
+      text-shadow: 0px 2px 6px #333;
+    }
+    h3 {
       color: white;
     }
   }
@@ -966,17 +955,9 @@ article.smaller {
   }
 
   article {
-    background: rgba(90, 90, 90, 0.9);
-    border-radius: 38px;
-    border-top-right-radius: 0;
-    border-bottom-left-radius: 0;
-    padding: 48px;
-
-    position: relative;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-    ms-transform: translateY(-50%);
-    transform: translateY(-50%);
+    @include bgbox;
+    @include vcenter;
+    font-size: 120%;
   }
 
   ul > li:before {
@@ -990,10 +971,9 @@ article.smaller {
     display: table-row;
   }
   li > span {
-    padding: 0.5em 1em;
+    padding: 0.5em 1em 0.5em 0;
     display: table-cell;
     text-align: right;
-    text-shadow: 0 0 7px;
     color: white;
   }
   li > a {
@@ -1009,6 +989,7 @@ article.smaller {
   background-size: 100%;
 
   hgroup {
+    @include vcenter;
     h1 {
       font-size: 92px;
       line-height: 1.5;
@@ -1023,14 +1004,15 @@ article.smaller {
       font-weight: inherit;
       color: #F5DC43;
       text-shadow: 0px 2px 6px #333;
+      margin-bottom: 1.6em;
     }
 
     h3 {
       display: inline-block;
-      border-radius: 10px;
+      @include bgbox(15px);
       color: white;
-      background: rgba(90, 90, 90, 0.7);
       padding: 10px 24px;
+      font-size: 38px;
       a {
         color: white;
         border-bottom: none;
@@ -1101,30 +1083,21 @@ body.with-notes {
   -webkit-filter: none !important;
 }
 
-/*
-.pattern-intro slide.dark {
-  background-color: #C1FFC5;
+slide.pattern-1 {
+  background-image: url(../../images/bg-gas-station.jpg) !important;
+  background-size: 100% !important;
 }
-.pattern-1 slide.dark {
-  background-color: #FF9A0D !important;
+slide.pattern-3 {
+  background-image: url(../../images/bg-traffic-jam.jpg) !important;
+  background-size: 100% !important;
 }
-.pattern-2 slide.dark {
-  background-color: #E80435 !important;
+slide.pattern-4 {
+  background-image: url(../../images/bg-bad-parking.jpg) !important;
+  background-size: 100% !important;
 }
-.pattern-3 slide.dark {
-  background-color: #4611FF !important;
+slide.pattern-5 {
+  background-image: url(../../images/bg-car-service.jpg) !important;
 }
-.pattern-4 slide.dark {
-  background-color: #04DDE8 !important;
-}
-.pattern-5 slide.dark {
-  background-color: #44FF05 !important;
-}
-.pattern-outro slide.dark {
-  background-color: #CED3FF;
-}
-*/
-
 
 .quote {
   color: white;

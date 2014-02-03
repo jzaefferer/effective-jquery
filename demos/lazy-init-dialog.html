@@ -1,20 +1,28 @@
 <!DOCTYPE html>
-<a href="#contact-us-dialog" class="dialog">Contact Us</a>
-<div style="height:1500px"></div>
-<div id="contact-us-dialog">Contact us today!</div>
+<html>
+<head>
+  <title>Lazy init of dialog</title>
+  <link rel="stylesheet" href="demos.css">
+  <link rel="stylesheet" href="vendor/jquery-ui-1.10.4.custom.css">
+</head>
+<body>
+  <a href="#contact-us-dialog" class="dialog">Contact Us</a>
+  <div style="height:1500px"></div>
+  <div id="contact-us-dialog">Contact us today!</div>
 
-<link rel="stylesheet" href="vendor/jquery-ui-1.10.4.custom.css">
-<script src="vendor/jquery.js"></script>
-<script src="vendor/jquery-ui-1.10.4.custom.js"></script>
-<script>
-var button = $(".dialog");
-var dialog = $(button.attr("href")).hide();
-button.click(function(event) {
-  event.preventDefault();
-  if (dialog.data("ui-dialog")) {
-    dialog.dialog("open");
-  } else {
-    dialog.dialog();
-  }
-});
-</script>
+  <script src="vendor/jquery.js"></script>
+  <script src="vendor/jquery-ui-1.10.4.custom.js"></script>
+  <script>
+  var button = $(".dialog");
+  var dialog = $(button.attr("href")).hide();
+  button.click(function(event) {
+    event.preventDefault();
+    if (dialog.data("ui-dialog")) {
+      dialog.dialog("open");
+    } else {
+      dialog.dialog();
+    }
+  });
+  </script>
+</body>
+</html>

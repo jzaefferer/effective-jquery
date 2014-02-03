@@ -27,7 +27,7 @@
       <h2>Patterns for maintainability and performance</h2>
       <h3>
         Jörn (as in "to <strong>yearn</strong> for something") Zaefferer<br>
-        <a href="http://bassistance.de">bassistance.de</a><br>
+        <a href="http://bassistance.de">bassistance.de</a> /
         <a href="https://twitter.com/bassistance">@bassistance</a>
       </h3>
     </hgroup>
@@ -48,9 +48,8 @@
   </slide>
 </div>
 
-<div class="pattern-1">
   <!-- Write code like you spend fuel -->
-  <slide class="segue big dark">
+  <slide class="segue big dark pattern-1">
     <aside class="note">
       <section>
         1. pattern: Write code like you spend fuel<br>
@@ -83,24 +82,22 @@
     </hgroup>
     <article>
       <textarea class="prettyprint" data-lang="html">
-        <html>
-          <head>
-            <script class="blocks-page-rendering" src="jquery.js"></script>
-            <script>
-            superEarly();
-            jQuery(document).ready(aLittleLaterStillEarly);
-            jQuery(window).load(afterAllImagesLoaded);
-            </script>
-          </head>
-          <body>
-            <main>...</main>
-            <script class="cool-place" src="jquery.js"></script>
-            <script>
-            // cool place
-            `afterAllElementsRendered();`
-            </script>
-          </body>
-        </html>
+        <head>
+          <script class="blocks-page-rendering" src="jquery.js"></script>
+          <script>
+          superEarly();
+          jQuery(document).ready(aLittleLaterStillEarly);
+          jQuery(window).load(afterAllImagesLoaded);
+          </script>
+        </head>
+        <body>
+          <main>...</main>
+          <script class="cool-place" src="jquery.js"></script>
+          <script>
+          // cool place
+          `afterAllElementsRendered();`
+          </script>
+        </body>
       </textarea>
     </article>
   </slide>
@@ -299,12 +296,11 @@
       <h2>heise.de two clicks for more privacy</h2>
     </hgroup>
   </slide>
-</div>
 
 
-<div class="pattern-2">
+
   <!-- Write code like you don't know the road -->
-  <slide class="segue big dark">
+  <slide class="segue big dark pattern-2">
     <aside class="note">
       <section>
         Write code like you don't know the road<br>
@@ -446,11 +442,11 @@
       </textarea>
     </article>
   </slide>
-</div>
 
-<div class="pattern-3">
+
+
   <!-- Write code like you avoid traffic jams -->
-  <slide class="segue big dark">
+  <slide class="segue big dark pattern-3">
     <aside class="note">
       <section>
         Write code like you avoid traffic jams<br>
@@ -607,12 +603,11 @@
       </textarea>
     </article>
   </slide>
-</div>
 
 
-<div class="pattern-4">
+
   <!-- Combine tools like you'd park and ride -->
-  <slide class="segue big dark">
+  <slide class="segue big dark pattern-4">
     <aside class="note">
       <section>
         Combine tools like you'd park and ride<br>
@@ -654,7 +649,7 @@
       </section>
     </aside>
     <hgroup>
-      <h2>custom tooltip with CSS transitions</h2>
+      <h2>Custom tooltip with CSS transitions</h2>
     </hgroup>
     <article>
       <textarea class="prettyprint" data-lang="css">
@@ -686,7 +681,7 @@
       </section>
     </aside>
     <hgroup>
-      <h2>custom tooltip with CSS transitions</h2>
+      <h2>Custom tooltip with CSS transitions</h2>
     </hgroup>
     <article>
       <textarea class="prettyprint" data-lang="js">
@@ -718,7 +713,7 @@
       </section>
     </aside>
     <hgroup>
-      <h2>custom tooltip with using <a href="http://ricostacruz.com/jquery.transit/">transit plugin</a></h2>
+      <h2>Custom tooltip with using <a href="http://ricostacruz.com/jquery.transit/">transit plugin</a></h2>
     </hgroup>
     <article>
       <textarea class="prettyprint" data-lang="js">
@@ -787,11 +782,11 @@
       </textarea>
     </article>
   </slide>
-</div>
 
-<div class="pattern-5">
+
+
   <!-- Customize widgets like customizing a car -->
-  <slide class="segue big dark">
+  <slide class="segue big dark pattern-5">
     <aside class="note">
       <section>
         Customize widgets like customizing a car<br>
@@ -907,40 +902,68 @@
     </aside>
     <img src="images/wijmo-midnight.png">
   </slide>
-</div>
 
 
-<div class="pattern-outro">
+
   <!-- outro -->
-  <slide>
+  <slide class="segue big dark pattern-1">
     <aside class="note">
       <section>
-        Recap!<br>
-        <ul>
-          <li>Write code like you spend fuel - plan ahead, spend as necessary, keep a reserve</li>
-          <li>Write code like you don't know the road - be flexible, avoid brittle methods and selectors</li>
-          <li>Write code like you avoid traffic jams - avoid JavaScript rush hours, use profiler when you run into unexpected bottlenecks</li>
-          <li>Combine tools like you'd park and ride - make use of CSS transitions, combine with jQuery</li>
-          <li>Customize widgets like customizing a car - don't build widgets from scratch when you can customize them</li>
-        </ul>
+        Write code like you spend fuel - plan ahead, spend as necessary, keep a reserve
       </section>
     </aside>
     <hgroup>
-      <h2>Recap</h2>
+      <h2>1. Write code like you spend fuel</h2>
+      <h3>plan ahead, spend as necessary, keep a reserve</h3>
     </hgroup>
-    <article>
-      <ul>
-        <li>Write code like you spend fuel</li>
-        <li>Write code like you don't know the road</li>
-        <li>Write code like you avoid traffic jams</li>
-        <li>Combine tools like you'd park and ride</li>
-        <li>Customize widgets like customizing a car</li>
-      </ul>
-    </article>
+  </slide>
+  <slide class="segue big dark pattern-2">
+    <aside class="note">
+      <section>
+        Write code like you don't know the road - be flexible, avoid brittle methods and selectors
+      </section>
+    </aside>
+    <hgroup>
+      <h2>2. Write code like you don't know the road</h2>
+      <h3>be flexible, avoid brittle methods and selectors</h3>
+    </hgroup>
+  </slide>
+  <slide class="segue big dark pattern-3">
+    <aside class="note">
+      <section>
+        Write code like you avoid traffic jams - avoid JavaScript rush hours, use profiler when you run into unexpected bottlenecks
+      </section>
+    </aside>
+    <hgroup>
+      <h2>3. Write code like you avoid traffic jams</h2>
+      <h3>avoid JavaScript rush hours, use profiler when you run into unexpected bottlenecks</h3>
+    </hgroup>
+  </slide>
+  <slide class="segue big dark pattern-4">
+    <aside class="note">
+      <section>
+        Combine tools like you'd park and ride - make use of CSS transitions, combine with jQuery
+      </section>
+    </aside>
+    <hgroup>
+      <h2>4. Combine tools like you'd park and ride</h2>
+      <h3>make use of CSS transitions, combine with jQuery</h3>
+    </hgroup>
+  </slide>
+  <slide class="segue big dark pattern-5">
+    <aside class="note">
+      <section>
+        Customize widgets like customizing a car - don't build widgets from scratch when you can customize them
+      </section>
+    </aside>
+    <hgroup>
+      <h2>5. Customize widgets like customizing a car</h2>
+      <h3>don't build widgets from scratch when you can customize them</h3>
+    </hgroup>
   </slide>
 
   <!-- closing -->
-  <slide class="thank-you-slide segue nobackground">
+  <slide class="thank-you-slide">
     <aside class="note">
       <section>
         "here are contact details and links to slides and resources"<br>
@@ -959,7 +982,7 @@
       </ul>
     </article>
   </slide>
-</div>
+
 
   <slide class="backdrop"></slide>
 

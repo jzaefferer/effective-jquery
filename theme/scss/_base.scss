@@ -42,6 +42,23 @@
   @include box-pack(center);
 }
 
+@mixin bgbox($radius: 38px) {
+  padding: 48px;
+  background: rgba(90,90,90,0.8);
+  border-radius: $radius;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+@mixin vcenter {
+  margin-top: 0;
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
 /**
  * Base SlideDeck Styles
  */

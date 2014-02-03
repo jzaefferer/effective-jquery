@@ -1,84 +1,95 @@
 <!DOCTYPE html>
-<a href="http://jquery.com" title="Go to jQuery's site">jquery.com</a>
-<a href="http://google.com" title="Search for something!">google.com</a>
-<div style="height:1500px">
-  <button>scroll down automagically!</button>
-</div>
-<a href="http://jquery.com" title="Go to jQuery's site">jquery.com</a>
-<a href="http://google.com" title="Search for something!">google.com</a>
-<p>EOF</p>
-<style>
-body {
-  font-family: sans-serif;
-}
-.tooltip {
-  top: 0;
-  left: 0;
-  position: absolute;
-  background: #eee;
-  border: 1px solid #ddd;
-  border-radius: 3px;
-  padding: 8px;
-  opacity: 0;
-  transition: opacity 0.4s ease-in-out;
-}
-.tooltip-visible {
-  opacity: 1;
-}
-</style>
-<script src="vendor/jquery.js"></script>
-<script src="vendor/jquery.transit.js"></script>
-<script>
-// same thing, but abstracted away with the transit plugin, 'fixing' the weird declarative style that CSS enforces
-// fade in/out an element, once with CSS transitions directly, once using the transit plugin
+<html>
+<head>
+  <title>CSS Transitions and jQuery</title>
+  <link rel="stylesheet" href="demos.css">
+  <style>
+  .tooltip {
+    top: 0;
+    left: 0;
+    position: absolute;
+    background: #eee;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    padding: 8px;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+  }
+  .tooltip-visible {
+    opacity: 1;
+  }
+  </style>
+</head>
+<body>
+  <h3>These links have custom tooltips</h3>
+  <ul>
+    <li><a href="http://jquery.com" title="Go to jQuery's site">jquery.com</a></li>
+    <li><a href="http://google.com" title="Search for something!">google.com</a></li>
+  </ul>
+  <div style="height:1500px">
+    <button>scroll down automagically!</button>
+  </div>
+  <ul>
+    <li><a href="http://jquery.com" title="Go to jQuery's site">jquery.com</a></li>
+    <li><a href="http://google.com" title="Search for something!">google.com</a></li>
+  </ul>
+  <p>EOF</p>
 
-// both approaches are valid, its good to know how to use both
-// easier fallback with .transition(), all in one place
-// considering transitions as part of how it looks may make more sense
-// CSS transitions handle queuing nicely, with jQuery/transit you have to do that yourself
-// also means that if you actually want animations to queue, you can't use only CSS
+  <script src="vendor/jquery.js"></script>
+  <script src="vendor/jquery.transit.js"></script>
+  <script>
+  // same thing, but abstracted away with the transit plugin, 'fixing' the weird declarative style that CSS enforces
+  // fade in/out an element, once with CSS transitions directly, once using the transit plugin
 
-var tooltip = $("<div>").addClass("tooltip").appendTo(document.body),
-  title;
-$("a[title]").mouseenter(function(event) {
-  title = this.title;
-  this.title = "";
-  tooltip.text(title).css({
-    left: event.pageX + 10,
-    top: event.pageY + 10
-  })
-  // .addClass("tooltip-visible");
-  .transition({
-    queue: false,
-    opacity: 1
+  // both approaches are valid, its good to know how to use both
+  // easier fallback with .transition(), all in one place
+  // considering transitions as part of how it looks may make more sense
+  // CSS transitions handle queuing nicely, with jQuery/transit you have to do that yourself
+  // also means that if you actually want animations to queue, you can't use only CSS
+
+  var tooltip = $("<div>").addClass("tooltip").appendTo(document.body),
+    title;
+  $("a[title]").mouseenter(function(event) {
+    title = this.title;
+    this.title = "";
+    tooltip.text(title).css({
+      left: event.pageX + 10,
+      top: event.pageY + 10
+    })
+    // .addClass("tooltip-visible");
+    .transition({
+      queue: false,
+      opacity: 1
+    });
+  }).mouseleave(function() {
+    this.title = title;
+    // tooltip.removeClass("tooltip-visible");
+    tooltip.transition({
+      opacity: 0
+    });
   });
-}).mouseleave(function() {
-  this.title = title;
-  // tooltip.removeClass("tooltip-visible");
-  tooltip.transition({
-    opacity: 0
+
+  $("button").click(function() {
+    // show how to use jQuery to animate page scroll
+    // can't be done with CSS
+    // need html for oldIE, body for everything else
+    // see also http://bugs.jquery.com/ticket/14515
+    $( "html, body" ).animate({
+      // scroll to end of page
+      scrollTop: $(document).height()
+    }, 800, function() {
+      console.log("runs twice");
+    }).promise().then(function() {
+      console.log("runs once!")
+    });
   });
-});
-
-$("button").click(function() {
-  // show how to use jQuery to animate page scroll
-  // can't be done with CSS
-  // need html for oldIE, body for everything else
-  // see also http://bugs.jquery.com/ticket/14515
-  $( "html, body" ).animate({
-    // scroll to end of page
-    scrollTop: $(document).height()
-  }, 800, function() {
-    console.log("runs twice");
-  }).promise().then(function() {
-    console.log("runs once!")
-  });
-});
 
 
-// Delegate .transition() calls to .animate() if the browser can't do CSS transitions.
-// Only works for properties that jQuery can handle; x/y won't work
-if (!$.support.transition) {
-  $.fn.transition = $.fn.animate;
-}
-</script>
+  // Delegate .transition() calls to .animate() if the browser can't do CSS transitions.
+  // Only works for properties that jQuery can handle; x/y won't work
+  if (!$.support.transition) {
+    $.fn.transition = $.fn.animate;
+  }
+  </script>
+</body>
+</html>
