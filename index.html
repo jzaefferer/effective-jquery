@@ -466,8 +466,8 @@
     <aside class="note">
       <section>
         Occasionally its less obvious.<br>
-        Here's some jQuery code that creates a list of items, it looks pretty innocent<br>
-        It sets text and data for each list item<br>
+        Here's some jQuery code that creates a list of items, which looks pretty innocent.<br>
+        It sets text and data for each list item,<br>
         Then each item is added to a jQuery object, which is then added to the page<br>
         Just one DOM operation, so why does it take more then two seconds for just 400 items?<br>
         This is a good opportunity to use a profiler
@@ -640,7 +640,7 @@
   <slide>
     <aside class="note">
       <section>
-        here's the CSS for a custom tooltip using CSS transitions for the fade effect<br>
+        here's the CSS for a custom tooltip using transitions for the fade effect<br>
         a lot of this is just general styling<br>
         [activate highlight]<br>
         relevant for the transition is opacity and transition<br>
@@ -704,7 +704,7 @@
   <slide>
     <aside class="note">
       <section>
-        Same tooltip example, now using the transit plugin, instead of specifying transitions in CSS<br>
+        Same tooltip example, now using the transit plugin, no longer specifying transitions in CSS<br>
         Instead of adding and removing the tooltip-visible class, we specify the properties to transition in a call to the transition methods<br>
         This also sets `queue:false` to achieve the same behaviour as CSS transitions, avoiding animations to queue up when hovering between elements with the tooltip attached
       </section>
@@ -735,7 +735,7 @@
     <aside class="note">
       <section>
         why pick one over the other?<br>
-        <b>preference</b>: declared in CSS vs JS<br>
+        <b>preference</b>: declared in CSS vs JS, if all else being equal, pick what you like more<br>
         <b>control</b>: queue multiple transitions, impossible with CSS transitions<br>
         <b>fallbacks</b>: when desired, really easy to do with transit plugin... [next slide mentions CSS Transitions fallback handling]
       </section>
@@ -853,10 +853,9 @@
         Customize widgets like customizing a car<br>
         These days you can pick much more then just the color when buying a new car<br>
         New or used, you can also customize yourself<br>
-        Applied to JS, jQuery UI widgets come with a selection of themes<br>
+        How does this apply to JS? For example, jQuery UI widgets come with a selection of themes<br>
         You can pick one that comes close, then adjust some details manually<br>
-        I recommend to look into customizing existing widgets<br>
-        Let's look at an example using jQuery UI tabs and datepicker
+        Let's look at an demo of customized widgets, using jQuery UI tabs and datepicker
       </section>
     </aside>
     <hgroup>
@@ -883,8 +882,7 @@
     <aside class="note">
       <section>
         Here are the same widgets with the same theme, but with a few modifications<br>
-        I made the tab headers stand out<br>
-        The headers now have icons<br>
+        I made the tab headers stand out and added icons<br>
         I removed some spacing on the datepicker to match the tabs<br>
         This took just a few lines of CSS, nothing magic<br>
         [mouse around to show hover styles]<br>
@@ -992,12 +990,12 @@
   <slide class="segue big dark pattern-3">
     <aside class="note">
       <section>
-        Write code like you avoid traffic jams - avoid JavaScript rush hours, use profiler when you run into unexpected bottlenecks
+        Write code like you avoid traffic jams - avoid JavaScript rush hours, use a profiler when you run into unexpected bottlenecks
       </section>
     </aside>
     <hgroup>
       <h2>3. Write code like you avoid traffic jams</h2>
-      <h3>avoid JavaScript rush hours, use profiler when you run into unexpected bottlenecks</h3>
+      <h3>avoid JavaScript rush hours, use a profiler when you run into unexpected bottlenecks</h3>
     </hgroup>
   </slide>
   <slide class="segue big dark pattern-4">
