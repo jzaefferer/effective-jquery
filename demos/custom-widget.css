@@ -50,10 +50,6 @@
   border-left-width: 0;
   border-right-width: 0;
 }
-.ui-datepicker-prev-hover, .ui-datepicker-next-hover {
-  border-width: 0;
-  background-image: none;
-}
 .ui-datepicker table {
   margin: 0;
 }

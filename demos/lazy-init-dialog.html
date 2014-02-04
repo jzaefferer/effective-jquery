@@ -13,9 +13,9 @@
   <script src="vendor/jquery.js"></script>
   <script src="vendor/jquery-ui-1.10.4.custom.js"></script>
   <script>
-  var button = $(".dialog");
-  var dialog = $(button.attr("href")).hide();
-  button.click(function(event) {
+  var trigger = $(".dialog");
+  var dialog = $(trigger.attr("href")).hide();
+  trigger.click(function(event) {
     event.preventDefault();
     if (dialog.data("ui-dialog")) {
       dialog.dialog("open");
