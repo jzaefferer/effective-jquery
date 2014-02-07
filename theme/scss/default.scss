@@ -374,6 +374,16 @@ ul {
   }
 }
 
+ol {
+  margin-left: 1.2em;
+  margin-bottom: 1em;
+  position: relative;
+  list-style-type: lower-alpha;
+  li {
+    margin-bottom: 0.65em;
+  }
+}
+
 // Code highlighting only effects the current slide.
 .highlight-code slide.current {
   pre > * {
