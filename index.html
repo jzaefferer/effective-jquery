@@ -432,6 +432,40 @@
   <slide>
     <aside class="note">
       <section>
+        What does this?<br>
+        Matches if the next sibling is a div<br>
+        Would break if any other element is inserted inbetween.
+      </section>
+    </aside>
+    <hgroup>
+      <h2>Flexible over brittle traversing example</h2>
+    </hgroup>
+    <article>
+      <textarea class="prettyprint" data-lang="js">
+        $("a").next("div")
+      </textarea>
+    </article>
+  </slide>
+  <slide>
+    <aside class="note">
+      <section>
+        Here if looks through next siblings until it finds a div and matches only that.<br>
+        Allows you to insert other siblings without breaking this traversal.
+      </section>
+    </aside>
+    <hgroup>
+      <h2>Flexible over brittle traversing example</h2>
+    </hgroup>
+    <article>
+      <textarea class="prettyprint" data-lang="js">
+        $("a").nextAll("div:first")
+      </textarea>
+    </article>
+  </slide>
+
+  <slide>
+    <aside class="note">
+      <section>
         The same applies to selectors, for example in the context of event delegation.<br>
         Pick the more flexible selector here, since clicks don't happen often.<br>
         Here's its better to match clicks based on the href, instead of relying on a specific class<br>
@@ -905,13 +939,48 @@
       <iframe src="demos/custom-widget.html"></iframe>
     </article>
   </slide>
+  <slide class="full nobackground">
+    <aside class="note">
+      <section>
+        Here's a edited screenshot of jQuery UI's download builder, showing you the widgets and theme I selected for this demo.<br>
+        Its really easy to build a custom download with a custom theme.
+      </section>
+    </aside>
+    <img src="images/download-builder-datepicker-tabs-flick.png">
+  </slide>
+
+  <slide>
+    <aside class="note">
+      <section>
+        When you don't want to use any of the stock themes, you have a few options for customizing widgets.<br>
+        You can use jQuery UI's ThemeRoller to customize one of the stock themes. That might be enough<br>
+        You could use a stock theme and create a simple stylesheet that overrides a few properties. This is what I did in the previous demo.<br>
+        You could the structure CSS file for widgets and write a custom theme<br>
+        Or you could write everything from scratch. This would be the most effort, but also gives you most control and you don't have to override any existing styles.<br>
+        I want to show you a few examples for the last two of these.
+      </section>
+    </aside>
+    <hgroup>
+      <h2>Options for CSS customization</h2>
+      <!-- <h3>Use <b>flexible</b> methods!</h3> -->
+    </hgroup>
+    <article>
+      <ul class="build">
+        <li>ThemeRoller</li>
+        <li>Overrides</li>
+        <li>Use structure.css, write theme from scratch</li>
+        <li>Everything from scratch</li>
+      </ul>
+    </article>
+  </slide>
 
   <!-- mybalsamiq screenshots -->
   <slide class="full nobackground">
     <aside class="note">
       <section>
         from mybalsamiq, a tool for creating mockups<br>
-        customized menu with icons and shortcuts to change project style
+        customized menu with icons and shortcuts to change project style<br>
+        This uses the structure CSS from jQuery UI with a fully custom theme
       </section>
     </aside>
     <img src="images/mybalsamiq-menu1.png">
@@ -938,14 +1007,33 @@
   <slide class="full nobackground">
     <aside class="note">
       <section>
-        Last one: the access slider<br>
+        Last one from mybalsamiq: the access slider<br>
         Here a customized slider with extra labels for each step.<br>
         These are examples of custom widgets that you can fit into your design,<br>
-        while you benefit from their great UX and accessibility.<br>
-        If you don't like the ThemeRoller themes and don't want to build your own
+        while you benefit from their great UX and accessibility.
       </section>
     </aside>
     <img src="images/mybalsamiq-access-slider.png">
+  </slide>
+
+  <!-- custom datepickers -->
+  <slide class="full nobackground">
+    <aside class="note">
+      <section>
+        Here's a stock datepicker with a fully custom theme, embedded in a custom calendar control<br>
+        This doesn't use any of the original CSS, its all custom.
+      </section>
+    </aside>
+    <img src="images/datepicker-custom-theme1.png">
+  </slide>
+  <slide class="full nobackground">
+    <aside class="note">
+      <section>
+        The same datepicker, on a booking site, with its own fully customized theme. The basic layout is the same, but that's all it has in common with the default theme.<br>
+        If you don't like the ThemeRoller themes and don't want to build your own
+      </section>
+    </aside>
+    <img src="images/datepicker-custom-theme2.png">
   </slide>
 
   <!-- wijmo screenshots -->
@@ -963,7 +1051,7 @@
       <section>
         Or this "midnight" theme.<br>
         They've got more themes and more widgets, too.<br>
-        All that to say: <b>Unless</b> building cars - or widgets - is your business,<br>
+        All that to say: <b>Unless</b> building widgets is your core business,<br>
         Don't build widgets from scratch, just like you wouldn't build a car from scratch, since you would waste a lot of time and miss a lot of details.<br>
         Which brings us to the end, so its time to ... resolve the quiz!
       </section>
