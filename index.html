@@ -17,11 +17,9 @@
     <aside class="note">
       <section>
         [screenflow start, manually, select projector!]<br>
-        Have you heard about the car that was made entirely out of wood?<br>
-        Yeah, it wooden move / or something about food for thought / Olá! How are you today?<br>
-        I've got these [hold up five fingers] five patterns I want to talk about today. Each should help you use jQuery more effectively.<br>
-        I selected these five from my work on jQuery UI and QUnit and other projects. To make them sticky, I came up with a few car and driving related analogies.<br>
-        First, I have a quiz for you!
+        Ich will euch heute, wie es im englischen so schön heisst, etwas "food for thought" geben, in Form von fünf [Finger hochhalten] Patterns. Diese sollen euch dabei helfen, jQuery effektiver zu verwenden.<br>
+        Ich habe diese fünf ausgewählt aus meiner Arbeit an jQuery UI, QUnit und vielen anderen Projekten. Damit ihr euch diese besser merken könnt, habe ich mir ein paar Auto und Autorennen Analogien ausgedacht.<br>
+        Bevor wir damit anfangen habe ich ein Quiz für euch!
       </section>
     </aside>
     <hgroup>
@@ -39,10 +37,10 @@
   <slide>
     <aside class="note">
       <section>
-        What is the most popular jQuery version on the jQuery CDN?<br>
-        a, 1.4.2, b, 1.7.2, c, 1.9.1, d, 1.10.2?<br>
-        who thinks its a? [wait] b? [wait] c? [wait] d? [wait] alright, most hands are for X<br>
-        I will give the answer later, for now, let's look at the first pattern!
+        Was ist die populärste jQuery version auf dem jQuery CDN?<br>
+        a, 1.4, b, 1.7, c, 1.9, d, 1.10?<br>
+        Wer denkt es ist a? [wait] b? [wait] c? [wait] d? [wait] Okay, die meisten waren für [X]<br>
+        Die korrekte Antwort gibt es am Ende. Jetzt das erste Pattern!
       </section>
     </aside>
     <hgroup>
@@ -64,11 +62,10 @@
     <aside class="note">
       <section>
         1. pattern: Write code like you spend fuel<br>
-        I adapted this from Doug Neiner's "write code like you spend money".<br>
-        When low on fuel, we don't drive as fast as possible to get to the next gas station<br>
-        But when the tank is full and we're in a hurry, we can drive a little faster<br>
-        How does this apply to JavaScript?<br>
-        Let me show show you...
+        Ich habe das von Doug Neiner's "write code like you spend money" adaptiert.<br>
+        Mit wenig Benzin im Tank fahren wir nicht so schnell wie möglich zur nächsten Tankstelle<br>
+        Mit vollem Tank können wir, wenn nötig, aber auch mal etwas schneller fahren.<br>
+        Was hat das mit JavaScript zu tun? Dazu ein Beispiel...
       </section>
     </aside>
     <hgroup>
@@ -316,9 +313,9 @@
     <aside class="note">
       <section>
         2. pattern: Write code like you don't know the road<br>
-        This one is about the interaction between JavaScript, HTML and CSS<br>
-        Its common to change markup to allow changes in CSS.<br>
-        But this can break brittle JS code.
+        Hier geht es um die Interaktion zwischen JavaScript, HTML and CSS<br>
+        Es ist normal, das Änderungen im Markup gemacht werden, um Änderungen in CSS zu ermöglichen..<br>
+        Dabei besteht aber immer die Gefahr, labiles JavaScript kaputt zu machen
       </section>
     </aside>
     <hgroup>
@@ -350,7 +347,7 @@
         This uses the children method to find the handle container<br>
         This would break when the handle ends up wrapped in another element<br>
         Instead of the children() method, we can use the find() method to avoid that<br>
-        Doug Neiner called these 'flexible' and 'brittle' methods
+        Doug Neiner called these 'flexible' and 'brittle' (labile) methods
       </section>
     </aside>
     <hgroup>
@@ -495,12 +492,12 @@
     <aside class="note">
       <section>
         3. pattern: Write code like you avoid traffic jams<br>
-        Traffic jams are like performance bottlenecks<br>
-        Always thinking about traffic jams is a waste of time<br>
-        But we can avoid well known rush hours!<br>
-        When it comes to jQuery, there's a few traffic jams we can look out for<br>
-        Usually having thousands of elements on a page will cause jams<br>
-        Doing lots of processing in mousemove events is also a bad idea<br>
+        Ein Stau auf der Straße ist wie ein Performance Bottleneck, oder Flaschenhals<br>
+        Wir können ein Menge Zeit und Nerven verschwenden, wenn wir uns ständig darüber Sorgen machen<br>
+        Besser ist es, die "rush hour" zu vermeiden.<br>
+        Im Falle von jQuery gibt es einige bekannte Gründe für Staus<br>
+        Mehrere Tausende Elemente auf einer Seite führt meist zu Problemen<br>
+        Ein mousemove Event Handler der zu viel auf einmal macht ist auch eine schlechte Idee
       </section>
     </aside>
     <hgroup>
@@ -511,12 +508,12 @@
   <slide>
     <aside class="note">
       <section>
-        Occasionally its less obvious.<br>
+        Hin und wieder ist es allerdings weniger offensichtlich<br>
         Here's some jQuery code that creates a list of items, which looks pretty innocent.<br>
         It sets text and data for each list item,<br>
         Then each item is added to a jQuery object, which is then added to the page<br>
         Just one DOM operation, so why does it take more then two seconds for just 400 items?<br>
-        This is a good opportunity to use a profiler
+        Das hier ist eine sehr gute Gelegenheit, einen Profiler zu verwenden.
       </section>
     </aside>
     <hgroup>
@@ -656,11 +653,11 @@
     <aside class="note">
       <section>
         4. pattern: Combine tools like you would park and ride<br>
-        jQuery pioneered a lot of new APIs<br>
-        Most are now available in the browser without libraries, via JavaScript, like querySelectorAll or classList.<br>
-        One particular new API got exposed via CSS: Transitions<br>
-        Since jQuery animations tend to be very slow on mobile devices, CSS transitions are quite valuable there<br>
-        They don't replace jQuery, but combining both is very poweful
+        jQuery ist Pionier für viele neue APIs<br>
+        Viele davon sind jetzt auch ohne Bibliotheken verfügbar, z.B. querySelectorAll oder classList.<br>
+        Eine neue API ist nur via CSS verfügbar: CSS Transitions<br>
+        Da jQuery Animationen allgemein sehr langsam auf kleinen mobilen Geräten sind (ich spreche gerne von Taschencomputern [Nexus 5 hoch halten]), sind dort CSS Transitions besonders hilfreich.<br>
+        Sie ersetzen jQuery nicht, aber die Kombination aus beidem ist sehr nützlich.
       </section>
     </aside>
     <hgroup>
@@ -897,11 +894,11 @@
     <aside class="note">
       <section>
         5. pattern: Customize widgets like customizing a car<br>
-        These days you can pick much more then just the color when buying a new car<br>
-        New or used, you can also customize yourself<br>
-        How does this apply to JS? For example, jQuery UI widgets come with a selection of themes<br>
-        You can pick one that comes close, then adjust some details manually<br>
-        Let's look at a demo of customized widgets, using jQuery UI tabs and datepicker
+        Heutzutage können wir deutlich mehr als nur die Farbe wählen, wenn wir ein neues Auto kaufen.<br>
+        Neu oder gebraucht, so oder so können wir auch selber Anpassungen an unserem Fahrzeug machen.<br>
+        Was hat das mit JavaScript zu tun? Dazu schauen wir uns jQuery UI widgets an. Für diese gibt es eine umfangreiche Auswahl an Themes.<br>
+        Wir können davon eines auswählen und danach ein paar Details anpassen.<br>
+        Dazu ein Beispiel mit jQuery UI Tabs und Datepicker
       </section>
     </aside>
     <hgroup>
@@ -1055,7 +1052,7 @@
         They've got more themes and more widgets, too.<br>
         All that to say: <b>Unless</b> building widgets is your core business,<br>
         Don't build widgets from scratch, just like you wouldn't build a car from scratch, since you would waste a lot of time and miss a lot of details.<br>
-        Which brings us to the end, so its time to ... resolve the quiz!
+        Und damit sind wir am Ende und es wird Zeit das Quiz aufzulösen!
       </section>
     </aside>
     <img src="images/wijmo-midnight.png">
@@ -1067,9 +1064,9 @@
   <slide>
     <aside class="note">
       <section>
-        Everyone who guessed C was right! The actual top-three is this<br>
-        By the way, the top file here had, within a month, 1.5 <b>billion</b> hits, using 45 TerraBytes of bandwidth.<br>
-        With that out of the way, I'd like to quickly recap what we looked at...
+        Wer C getippt hat, lag richtig.<br>
+        Wo wir schon dabei sind: Die Nummer 1 hier hatte in einem Monat 1.5 Milliarden hits, was für 45 terra bytes an Traffic gesorgt hat.<br>
+        Zum Abschluss möchte ich noch kurz zusammen fassen, was wir uns angeschaut haben...
       </section>
     </aside>
     <hgroup>
@@ -1088,7 +1085,7 @@
   <slide class="segue big dark pattern-1">
     <aside class="note">
       <section>
-        Write code like you spend fuel - plan ahead, spend as necessary, keep a reserve
+        Write code like you spend fuel - voraus planen, soviel ausgeben wie nötig, und eine Reserve vorhalten
       </section>
     </aside>
     <hgroup>
@@ -1099,7 +1096,7 @@
   <slide class="segue big dark pattern-2">
     <aside class="note">
       <section>
-        Write code like you don't know the road - be flexible, avoid brittle methods and selectors
+        Write code like you don't know the road - flexibles JavaScript schreiben, dabei labile Methoden und Selektoren vermeiden
       </section>
     </aside>
     <hgroup>
@@ -1110,7 +1107,7 @@
   <slide class="segue big dark pattern-3">
     <aside class="note">
       <section>
-        Write code like you avoid traffic jams - avoid JavaScript rush hours, use a profiler when you run into unexpected bottlenecks
+        Write code like you avoid traffic jams - JavaScript Hauptverkehrszeiten vermeiden, Profiler verwenden bei unerwarteten Performance Problemen verwenden
       </section>
     </aside>
     <hgroup>
@@ -1121,7 +1118,7 @@
   <slide class="segue big dark pattern-4">
     <aside class="note">
       <section>
-        Combine tools like you'd park and ride - make use of CSS transitions, combine with jQuery
+        Combine tools like you'd park and ride - CSS transitions mit jQuery kombinieren
       </section>
     </aside>
     <hgroup>
@@ -1132,7 +1129,7 @@
   <slide class="segue big dark pattern-5">
     <aside class="note">
       <section>
-        Customize widgets like customizing a car - don't build widgets from scratch when you can customize them
+        Customize widgets like customizing a car - Existierende Widgets anpassen, statt komplett neue zu bauen
       </section>
     </aside>
     <hgroup>
@@ -1145,10 +1142,10 @@
   <slide class="thank-you-slide">
     <aside class="note">
       <section>
-        "here are contact details and links to slides and resources"<br>
-        If Q/A time: "and we have time for questions!"<br>
-        Once done, "Alright, that was the last question, thank you very much!"<br>
-        Otherwise: "unfortunately we don't have time for questions. Thank you very much!"
+        "Hier sind ein paar Möglichkeiten, mich zu kontaktieren, wenn ihr noch Fragen habt. Außerdem Links zu den Slides und weiteren Resourcen"<br>
+        If Q/A time: "und wir habe noch Zeit für Fragen!"<br>
+        Once done, "Okay, das war die letzte Frage, vielen Dank!"<br>
+        Otherwise: "Leider haben wir keine Zeit mehr für Fragen. Vielen Dank!"
       </section>
     </aside>
     <article>
