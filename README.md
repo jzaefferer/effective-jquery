@@ -36,7 +36,7 @@ When activing, a popup is opened. Use that on your laptop's screen, and go full-
 
 ## License
 
-Copyright 2014 Jörn Zaefferer
+Copyright Jörn Zaefferer
 
 Licensed [Apache License 2.0](http://www.apache.org/licenses/LICENSE-2.0), same as the original IO 2012 slides.
 
